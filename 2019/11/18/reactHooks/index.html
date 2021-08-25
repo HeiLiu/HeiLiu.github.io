@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>React Hook学习 - HeiLiu</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="一直在路上的程序员">
+    <meta name="keywords" content="博客 程序员 分享">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Hooks 在React 16.8 以上的版本中才可以使用  eslint-plugin-react-hooks Hook 定义 Hook 是一些可以让你在函数组件里“钩入” React state 及生命周期等特性的函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Hook学习">
+<meta property="og:url" content="https://heiliu.github.io/2019/11/18/reactHooks/">
+<meta property="og:site_name" content="HeiLiu">
+<meta property="og:description" content="Hooks 在React 16.8 以上的版本中才可以使用  eslint-plugin-react-hooks Hook 定义 Hook 是一些可以让你在函数组件里“钩入” React state 及生命周期等特性的函数。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-11-18T04:59:41.324Z">
+<meta property="article:modified_time" content="2021-08-25T12:28:06.219Z">
+<meta property="article:author" content="小别致真东西">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1629897075353">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1629897075353">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="小别致真东西" class="mdui-btn mdui-btn-icon"><img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="小别致真东西">
+            <img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西" alt="小别致真东西">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>75</div>
+        <div><span>标签</span>24</div>
+        <div><span>分类</span>18</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=969403750&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/heiliu/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Bar/" style="font-size: 10px;">Bar</a> <a href="/tags/E2E%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">E2E测试</a> <a href="/tags/Foo/" style="font-size: 12.5px;">Foo</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Note/" style="font-size: 15px;">Note</a> <a href="/tags/Quote/" style="font-size: 10px;">Quote</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/Skill/" style="font-size: 10px;">Skill</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/WebPack/" style="font-size: 10px;">WebPack</a> <a href="/tags/Yarn/" style="font-size: 10px;">Yarn</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/utils/" style="font-size: 12.5px;">utils</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 12.5px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E6%9C%89%E6%84%9F/" style="font-size: 10px;">有感</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%A0%87%E7%AD%BE/" style="font-size: 10px;">演示标签</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/Git/">Git</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Node最佳实践/">Node最佳实践</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/">Note</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/">Skill</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Test/">Test</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/demo/">demo</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/webPack/">webPack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/倒腾/">倒腾</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">9</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/有感/">有感</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活/">生活</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 小别致真东西
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://vercel.com/?utm_source=theme-nexmoe&amp;utm_campaign=oss" title="Powered By Vercel" rel="nofollow noopener"><img src="https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667" alt="Powered By Vercel" title="Powered By Vercel" data-canonical-src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="React Hook学习" class="lazyload">
+              <h1>React Hook学习</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月18日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.6k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 12 分钟</a>
+</div>
+
+      
+
+      <p>  Hooks 在React <strong>16.8</strong> 以上的版本中才可以使用<br>  <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/eslint-plugin-react-hooks">eslint-plugin-react-hooks</a></p>
+<h2 id="Hook-定义"><a href="#Hook-定义" class="headerlink" title="Hook 定义"></a>Hook 定义</h2><blockquote>
+<p>Hook 是一些可以让你在函数组件里“钩入” React state 及生命周期等特性的<code>函数</code>。  </p>
+</blockquote>
+<span id="more"></span>
+<p>   Hook 不能在 class 组件中使用 —— 它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。<br>   使组件自身在初次 render 之后，能够通过 Hook 机制再触发状态的变更并且引起re-render。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Hook类型定义 链表</span><br>type Hook = &#123;<br>  <span class="hljs-attr">memoizedState</span>: any, <span class="hljs-comment">// 存储最新的state 链表</span><br>  <span class="hljs-attr">baseState</span>: any,<br>  <span class="hljs-attr">baseUpdate</span>: Update&lt;any, any&gt; | <span class="hljs-literal">null</span>,<br>  <span class="hljs-attr">queue</span>: UpdateQueue&lt;any, any&gt; | <span class="hljs-literal">null</span>, <span class="hljs-comment">// 更新队列</span><br>  <span class="hljs-attr">next</span>: Hook | <span class="hljs-literal">null</span>, <span class="hljs-comment">// 下一个hook</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="React-并不会放弃-class"><a href="#React-并不会放弃-class" class="headerlink" title="React 并不会放弃 class"></a>React 并不会放弃 class</h3><h4 id="Class-的缺陷："><a href="#Class-的缺陷：" class="headerlink" title="Class 的缺陷："></a>Class 的缺陷：</h4><ul>
+<li>this 的指向问题，在函数组件的编写中经常会碰到this的指向问题 </li>
+<li>编译过后的代码大小 </li>
+<li>Javascript实现的类本身比较鸡肋，没有类似Java/C++多继承的概念，类的逻辑复用是个问题 </li>
+<li>Class Component在React内部是当做Javascript Function类来处理的</li>
+</ul>
+<h2 id="Hook-使用规则"><a href="#Hook-使用规则" class="headerlink" title="Hook 使用规则"></a>Hook 使用规则</h2><p>  Hook 就是 JavaScript 函数，但是使用它们会有两个额外的规则：</p>
+<ul>
+<li><p>只能在函数最外层调用 Hook。<strong>不要在循环、条件判断或者子函数中调用</strong>。</p>
+</li>
+<li><p><code>只能</code>在 React 的函数组件或者自定义的Hook中调用 Hook。</p>
+<p>在实际编写底层组件库中常常会配合 useState Hook 进行测试, 因为我们的最底层的组件通常应该是被设计成 <code>stateless</code> 的，需要外部传入props 进行控制测试</p>
+</li>
+</ul>
+<h2 id="相关-Hook-的使用"><a href="#相关-Hook-的使用" class="headerlink" title="相关 Hook 的使用"></a>相关 Hook 的使用</h2><h3 id="useState-Hook"><a href="#useState-Hook" class="headerlink" title="useState Hook"></a>useState Hook</h3><p>  在函数组件中、通过 useState Hook 可以使用在 class 中的 state 特性；函数退出后、state 中的变量会被 React 保留；usetState 返回一个状态以及这个状态的 setter 方法，</p>
+<p><strong>初始化</strong><br>一  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> [state, setState] = useState(initialState)<br></code></pre></td></tr></table></figure>
+<p>二<br>在初始化的时候、如果state需要通过计算获得、或者需要进行比较 expensive 的计算，可以传入一个函数。<br>这个 initialState 参数只会在组件的初始渲染中起作用，后续渲染时会被忽略</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> [state, setState] = useState(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> initialState = someExpensiveComputation(props);<br>  <span class="hljs-keyword">return</span> initialState;<br>&#125;);<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Table</span>(<span class="hljs-params">props</span>) </span>&#123;<br>  <span class="hljs-comment">// ⚠️ createRows() 每次渲染都会被调用</span><br>  <span class="hljs-keyword">const</span> [rows, setRows] = useState(createRows(props.count));<br>  <span class="hljs-comment">// ...</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Table</span>(<span class="hljs-params">props</span>) </span>&#123;<br>  <span class="hljs-comment">// ✅ createRows() 只会被调用一次</span><br>  <span class="hljs-keyword">const</span> [rows, setRows] = useState(<span class="hljs-function">() =&gt;</span> createRows(props.count));<br>  <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>修改状态</strong></p>
+<ul>
+<li>state 初始化之后只能通过这个 setter 修改对应这个 state。  </li>
+<li>框架内部会对多次 setter 操作进行合并（循环执行传入的setter，目的是保证 useState 拿到最新的状态）</li>
+<li>state 比较多的情况下可以使用对象、数组的形式、在修改state的时候需要注意，<strong>相较于 setState 非覆盖式更新状态，useState 覆盖式更新状态(会替换 state 的值)，需要开发者自己处理逻辑。</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 通过新的状态更新</span><br>setState(updateState);<br><span class="hljs-comment">// 函数式更新</span><br>setState(<span class="hljs-function"><span class="hljs-params">preState</span> =&gt;</span> preState + <span class="hljs-number">10</span>);<br></code></pre></td></tr></table></figure>
+
+  <iframe
+     src="https://codesandbox.io/embed/heuristic-driscoll-hskqs?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="heuristic-driscoll-hskqs"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+<h3 id="useEffect-Hook"><a href="#useEffect-Hook" class="headerlink" title="useEffect Hook"></a>useEffect Hook</h3><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> type Effect = &#123;|<br>  tag: HookEffectTag,<br>  <span class="hljs-attr">create</span>: <span class="hljs-function">() =&gt;</span> (<span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">void</span>) | <span class="hljs-keyword">void</span>, <span class="hljs-comment">// 存储 useEffect 传入的 callback</span><br>  <span class="hljs-attr">destroy</span>: (<span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">void</span>) | <span class="hljs-keyword">void</span>, <span class="hljs-comment">// 存储 useEffect 传入的 callback 的返回函数，</span><br>  <span class="hljs-attr">deps</span>: <span class="hljs-built_in">Array</span>&lt;mixed&gt; | <span class="hljs-literal">null</span>,<br>  <span class="hljs-attr">next</span>: Effect,<br>|&#125;;<br></code></pre></td></tr></table></figure>
+<p>Effect 处理函数组件中副作用：数据获取，设置订阅以及手动更改 React 组件中的 DOM</p>
+<p>useEffect 必须在组件内部调用，可以直接在作用域内读取 state 或者 props  </p>
+<p>与 useState 传入具体 state 不同，useEffect传入的是一个 callback 函数。<br>与useState 最大的不同是执行时机，useEffect 是在<strong>组件被渲染为真实DOM后执行</strong>  </p>
+<blockquote>
+<p>默认情况下，在第一次渲染之后和每次更新之后都会调用 useEffect 中的函数,它让我们在函数组件中存储内部 state </p>
+</blockquote>
+<p>Function Component 不存在生命周期，不用再去考虑”挂载”还是”更新”，即原来在 class 组件中的 componentDidMount、componentDidUpdate 和 componentWillUnmount。 </p>
+<p>与 componentDidMount 或 componentDidUpdate 不同，使用 useEffect 调的 effect 不会阻塞浏览器更新屏幕，这让你的应用看起来响应更快(Effect 是异步操作)。大多数情况下，Effect 不需要同步地执行。在个别情况下（例如测量布局）有单独的 useLayoutEffect Hook 供你使用，其 API 与 useEffect 相同。</p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> React, &#123; useState, useEffect &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><br><span class="hljs-keyword">const</span> Example = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);<br><br>  <span class="hljs-comment">// 在执行 DOM 更新之后调用</span><br>  useEffect(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-comment">// 在render后输出点击的次数</span><br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`You clicked <span class="hljs-subst">$&#123;count&#125;</span> times`</span>);<br>  &#125;);<br><br>  <span class="hljs-keyword">return</span> (<br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked &#123;count&#125; times<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;</span><br><span class="xml">        CLICK CRAZY!</span><br><span class="xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>回收机制：useEffect 接受传入的 callback 返回一个函数来指定如何“清除” effect。<br> 在组件被销毁时会执行返回的回调函数。</p>
+</li>
+<li><p>如果传入第二个参数，监听某个state变化而执行、实现性能优化，在监听的元素发生变化后才调用 effect; 若传入空的依赖数组 []，意味着该 hook 只在组件挂载时运行一次</p>
+</li>
+</ul>
+<iframe
+     src="https://codesandbox.io/embed/useeffectdeyilai-3jmdl?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="useEffect的依赖"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+  
+  <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> React, &#123; useState, useEffect &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Example</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);<br><br>  <span class="hljs-comment">// 可以添加第二个参数、只要第二个参数发生变化、return中的方法也会执行</span><br>  useEffect(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`You clicked <span class="hljs-subst">$&#123;count&#125;</span> times`</span>);<br>    <span class="hljs-comment">// 组件销毁时执行</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Bye...&#x27;</span>);<br>    &#125;<br><br>  &#125;, [count]);<br><br>  <span class="hljs-keyword">return</span> (<br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked &#123;count&#125; times<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;</span><br><span class="xml">        CLICK CRAZY!</span><br><span class="xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Hook-使用了-JavaScript-的闭包机制"><a href="#Hook-使用了-JavaScript-的闭包机制" class="headerlink" title="Hook 使用了 JavaScript 的闭包机制"></a>Hook 使用了 JavaScript 的闭包机制</h3><p>将 useEffect 或者其他 Hook 放在组件内部让我们可以在 effect 中直接访问 state 变量（或其他 props）</p>
+<p>  <strong>capture value 特性</strong>  </p>
+<p>  非 useRef 的 hook 本质上都形成了闭包，拥有自己独立的状态（因为闭包的值实际上不是 reactive 的，）。  </p>
+<p>  可以认为每次 render 的内容都会形成一个快照并保留下来， 当状态变更时，就形成了多个 Render 状态，而每个 Render 状态都拥有自己固定不变的 Props 与 State，内部的函数在每次渲染时也是独立的。  </p>
+<ul>
+<li>所有 Hook 除了 useRef 都具有 capture value 特性  </li>
+<li>每次 Render 都有自己的 Effects</li>
+<li>每次 Render 都有自己的 state 和 props</li>
+</ul>
+<p>  会导致有的时候拿到的 state 或者 props 是旧值。</p>
+<h3 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h3><p>useState()的替代方案<br>提供了在组件外重新编排 state 的能力<br>useReducer 返回的结构与 useState 很像，只是数组第二项是 dispatch，而接收的参数也有两个，初始值放在第二位，第一位就是 reducer。</p>
+<p><strong>React 会确保 dispatch 函数的标识是稳定的，并且不会在组件重新渲染时改变</strong>，useReducer返回的dispatch对象又是“性能安全的”，可以直接放心地传递给子组件而不会引起子组件re-render。所以说 <strong>把 dispatch 放入依赖数组没什么意义</strong>。</p>
+<p><strong>指定初始化state</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 1 state = initialState</span><br><span class="hljs-keyword">const</span> [state, dispatch] = useReducer(reducer, initialState);<br><span class="hljs-comment">// 2 state = init(initialArg) init() 用于计算 state</span><br><span class="hljs-keyword">const</span> [state, dispatch] = useReducer(reducer, initialArg, init);<br></code></pre></td></tr></table></figure>
+
+<!-- 基于Hooks Api可以实现一个useReducer Hook -->
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> useReducer = <span class="hljs-function">(<span class="hljs-params">reducer, initialArg, init</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> [state, setState] = useState(<br>    init ? <span class="hljs-function">() =&gt;</span> init(initialArg) : initialArg,<br>  );<br>  <span class="hljs-keyword">const</span> dispatch = useCallback(<br>    <span class="hljs-function"><span class="hljs-params">action</span> =&gt;</span> setState(<span class="hljs-function"><span class="hljs-params">prev</span> =&gt;</span> reducer(prev, action)),<br>    [reducer],<br>  );<br>  <span class="hljs-keyword">return</span> useMemo(<span class="hljs-function">() =&gt;</span> [state, dispatch], [state, dispatch]);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<iframe
+     src="https://codesandbox.io/embed/small-cloud-tmriz?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="useReducer"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reducer</span>(<span class="hljs-params">state, action</span>) </span>&#123;<br>  <span class="hljs-comment">// 能够拿到组件的所有的 state</span><br>  <span class="hljs-keyword">switch</span> (action.type) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;INCREMENT&quot;</span>:<br>      <span class="hljs-keyword">return</span> &#123;<br>        ...state,<br>        <span class="hljs-attr">count</span>: state.count + state.step<br>      &#125;;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;DECREMENT&quot;</span>:<br>      <span class="hljs-keyword">return</span> &#123;<br>        ...state,<br>        <span class="hljs-attr">count</span>: state.count + state.step<br>      &#125;;<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params">props</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> [state, dispatch] = useReducer(reducer, &#123;<br>    <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">step</span>: <span class="hljs-number">10</span>,<br>  &#125;);<br>  <span class="hljs-keyword">const</span> &#123; count, step &#125; = state;<br><br>  useEffect(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      dispatch(&#123; <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;INCREMENT&quot;</span> &#125;);<br>    &#125;, <span class="hljs-number">1000</span>);<br><span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">clearInterval</span>(timer);<br>    <span class="hljs-comment">// 依赖 dispath 没有多大的意义</span><br>  &#125;, [dispatch]);<br><br>  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h3><p>数据透传、减少组件层级、简化了消费 context 的过程</p>
+<p>useContext 的参数必须是 context 对象本身</p>
+<p>调用了 useContext 的组件总会在 context 值变化时重新渲染  </p>
+<iframe
+     src="https://codesandbox.io/embed/friendly-morse-zzxrn?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="friendly-morse-zzxrn"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+<h3 id="useCallback"><a href="#useCallback" class="headerlink" title="useCallback"></a>useCallback</h3><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> memorizeFn = useCallback(fn, deps)<br></code></pre></td></tr></table></figure>
+<p>返回该回调函数 fn 的 memoized 版本，该回调函数仅在某个依赖项改变时才会更新  </p>
+<p>经过 useCallback 包装过的函数可以当作普通变量作为 useEffect 的依赖。useCallback 做的事情，就是在其依赖变化时，返回一个新的函数引用，触发 useEffect 的依赖变化，并激活其重新执行。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);<br><br>  useEffect(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> getFetchUrl = <span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;https://v?query=&quot;</span> + count;<br>    &#125;<br><br>    getFetchUrl();<br>  &#125;, [count]);<br><br>  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;<br>&#125;<br><span class="hljs-comment">// 利用 useCallback() 将函数放到 useEffect 外部</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);<br><br>  <span class="hljs-keyword">const</span> getFetchUrl = useCallback(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;https://v?query=&quot;</span> + count;<br>  &#125;, [count]);<br><br>  useEffect(<span class="hljs-function">() =&gt;</span> &#123;<br>    getFetchUrl();<br>  &#125;, [getFetchUrl]);<br><br>  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<!-- 反而更容易使性能变差 -->
+
+<h3 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h3><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> memoizedValue = useMemo(<span class="hljs-function">() =&gt;</span> computeExpensiveValue(a, b), [a, b]);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// useCallback 不会执行 fn 而是将其返回， useMemo 则会执行 fn 返回具体的值</span><br>useCallback(fn, deps) =&gt; useMemo(<span class="hljs-function">() =&gt;</span> fn, deps)<br></code></pre></td></tr></table></figure>
+
+<p><strong>执行时机：</strong> 在渲染期间执行，useMemo() 的返回值参与 render<br>  把“创建”函数和依赖项数组作为参数传入 useMemo，它仅会在某个依赖项改变时才重新计算 memoized 值。这种优化有助于避免在每次渲染时都进行高开销的计算，用于缓存一些耗时的计算结果，只有当依赖参数改变时才重新执行计算</p>
+<p>  如果没有提供依赖项数组，useMemo 在每次渲染时都会计算新的值。<br>  若第二个参数为空数组，则只会在渲染组件时执行一次，传入的属性值的更新也不会有作用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parent</span>(<span class="hljs-params">&#123; a, b &#125;</span>) </span>&#123;<br>  <span class="hljs-comment">// Only re-rendered if `a` changes:</span><br>  <span class="hljs-keyword">const</span> child1 = useMemo(<span class="hljs-function">() =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child1</span> <span class="hljs-attr">a</span>=<span class="hljs-string">&#123;a&#125;</span> /&gt;</span></span>, [a]);<br>  <span class="hljs-comment">// Only re-rendered if `b` changes:</span><br>  <span class="hljs-keyword">const</span> child2 = useMemo(<span class="hljs-function">() =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child2</span> <span class="hljs-attr">b</span>=<span class="hljs-string">&#123;b&#125;</span> /&gt;</span></span>, [b]);<br>  <span class="hljs-keyword">return</span> (<br>    <span class="xml"><span class="hljs-tag">&lt;&gt;</span></span><br><span class="xml">      &#123;child1&#125;</span><br><span class="xml">      &#123;child2&#125;</span><br><span class="xml">    <span class="hljs-tag">&lt;/&gt;</span></span><br>  )<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h3><blockquote>
+<p>useRef 会在每次渲染时返回同一个 ref 对象,  可以认为 ref 在所有 Render 过程中保持着唯一引用。也可以认为，ref 是 Mutable 的，而 state 是 Immutable 的</p>
+</blockquote>
+<ul>
+<li>用 useRef 获取 React JSX 中的 DOM 元素  </li>
+<li>用useRef来保存变量  </li>
+<li>useRef是所有Hooks API里边唯一一个返回mutable数据的</li>
+<li>修改useRef值的唯一方法是修改其current的值，且值的变更不会引起re-render</li>
+<li>每一次组件render时useRef都返回固定不变的值，</li>
+</ul>
+<h3 id="自定义-hook"><a href="#自定义-hook" class="headerlink" title="自定义 hook"></a>自定义 hook</h3><blockquote>
+<p>创建规则： 函数名遵循以 use 开头，且返回非 JSX 元素</p>
+</blockquote>
+<ul>
+<li>使用自定义 Hook 从组件中提取状态逻辑，使得这些逻辑可以单独测试并复用。</li>
+</ul>
+<iframe
+     src="https://codesandbox.io/embed/interesting-sid-3tvcc?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="customHook-usePrevious"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/hooks-overview.html">React Hooks 文档</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/92211533?utm_source=wechat_session&utm_medium=social&utm_oi=29558355001344">React Hooks 完全上手指南</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/">函数组件与类组件</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/dt-fe/weekly/blob/v2/096.%E7%B2%BE%E8%AF%BB%E3%80%8AuseEffect%20%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E3%80%8B.md">精读《useEffect 完全指南》</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/">a-complete-guide-to-useeffect</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53375744">React 作者关于 Hooks 的深度 issue</a></p>
+</li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>小别致真东西<br>
+        <strong>本文链接：</strong><a href="https://heiliu.github.io/2019/11/18/reactHooks/" title="https:&#x2F;&#x2F;heiliu.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;reactHooks&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;heiliu.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;reactHooks&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%89%8D%E7%AB%AF/React/">React</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/React/" rel="tag">React</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTkyOS8xMjQ2NQ==">
+    <script id="livere-comment-js">
+    (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1629897075354"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <!-- baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?1b3ede68905f0bbb58c39b0e279d6246';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+
+</html>

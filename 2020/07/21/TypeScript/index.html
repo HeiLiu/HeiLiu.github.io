@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>TypeScript 笔记 - HeiLiu</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="一直在路上的程序员">
+    <meta name="keywords" content="博客 程序员 分享">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="interface常用于对 「对象形状」进行描述 &#x2F;&#x2F; 接口首字母一般大写 或者加上 I 前缀interface Person &amp;#123;  name: string;  age?: number;&amp;#125;&#x2F;&#x2F; 变量形状必须与接口形状一致，不多不少let tom: Person &#x3D; &amp;#123;  name: &quot;tom&quot;,  age: 1&amp;#125;;  类型别名（typ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript 笔记">
+<meta property="og:url" content="https://heiliu.github.io/2020/07/21/TypeScript/">
+<meta property="og:site_name" content="HeiLiu">
+<meta property="og:description" content="interface常用于对 「对象形状」进行描述 &#x2F;&#x2F; 接口首字母一般大写 或者加上 I 前缀interface Person &amp;#123;  name: string;  age?: number;&amp;#125;&#x2F;&#x2F; 变量形状必须与接口形状一致，不多不少let tom: Person &#x3D; &amp;#123;  name: &quot;tom&quot;,  age: 1&amp;#125;;  类型别名（typ">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-21T07:42:09.000Z">
+<meta property="article:modified_time" content="2020-07-27T05:57:21.942Z">
+<meta property="article:author" content="小别致真东西">
+<meta property="article:tag" content="博客 程序员 分享">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1629897075323">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1629897075323">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="小别致真东西" class="mdui-btn mdui-btn-icon"><img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="小别致真东西">
+            <img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西" alt="小别致真东西">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>75</div>
+        <div><span>标签</span>24</div>
+        <div><span>分类</span>18</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=969403750&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/heiliu/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Bar/" style="font-size: 10px;">Bar</a> <a href="/tags/E2E%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">E2E测试</a> <a href="/tags/Foo/" style="font-size: 12.5px;">Foo</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Note/" style="font-size: 15px;">Note</a> <a href="/tags/Quote/" style="font-size: 10px;">Quote</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/Skill/" style="font-size: 10px;">Skill</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/WebPack/" style="font-size: 10px;">WebPack</a> <a href="/tags/Yarn/" style="font-size: 10px;">Yarn</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/utils/" style="font-size: 12.5px;">utils</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 12.5px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E6%9C%89%E6%84%9F/" style="font-size: 10px;">有感</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%A0%87%E7%AD%BE/" style="font-size: 10px;">演示标签</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/Git/">Git</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Node最佳实践/">Node最佳实践</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/">Note</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/">Skill</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Test/">Test</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/demo/">demo</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/webPack/">webPack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/倒腾/">倒腾</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">9</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/有感/">有感</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活/">生活</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 小别致真东西
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://vercel.com/?utm_source=theme-nexmoe&amp;utm_campaign=oss" title="Powered By Vercel" rel="nofollow noopener"><img src="https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667" alt="Powered By Vercel" title="Powered By Vercel" data-canonical-src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="TypeScript 笔记" class="lazyload">
+              <h1>TypeScript 笔记</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年07月21日</a>
+    <a><i class="nexmoefont icon-areachart"></i>426 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
+
+      
+
+      <h2 id="interface"><a href="#interface" class="headerlink" title="interface"></a>interface</h2><p>常用于对 「对象形状」进行描述</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 接口首字母一般大写 或者加上 I 前缀</span><br>interface Person &#123;<br>  <span class="hljs-attr">name</span>: string;<br>  age?: number;<br>&#125;<br><br><span class="hljs-comment">// 变量形状必须与接口形状一致，不多不少</span><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;tom&quot;</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">1</span><br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="类型别名（type）"><a href="#类型别名（type）" class="headerlink" title="类型别名（type）"></a>类型别名（type）</h2><p>类型别名为类型创建新名称。<br>类型别名有时与接口相似，但是可以命名基元，并集，元组和其他必须手工编写的其他类型。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">type</span> Name = <span class="hljs-built_in">string</span>;<br><span class="hljs-keyword">type</span> StringOrNumber = <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>;<br><span class="hljs-keyword">type</span> ActionResponse = <span class="hljs-built_in">Promise</span>&lt;&#123; error?; data? &#125;&gt;;<br><br><span class="hljs-keyword">type</span> childItem = &#123;<br>    id?: <span class="hljs-built_in">number</span>;<br>    label: <span class="hljs-built_in">string</span>;<br>    key?: <span class="hljs-built_in">string</span>;<br>    info?: &#123;<br>        <span class="hljs-attr">price</span>: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>;<br>        specialPrices?: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>;<br>    &#125;;<br>&#125;;<br><br><span class="hljs-keyword">type</span> menuItem = &#123;<br>    <span class="hljs-attr">label</span>: <span class="hljs-built_in">string</span>;<br>    key: <span class="hljs-built_in">string</span>;<br>    children: <span class="hljs-built_in">Array</span>&lt;childItem&gt;;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="interface-和-type-的区别"><a href="#interface-和-type-的区别" class="headerlink" title="interface 和 type 的区别"></a>interface 和 type 的区别</h3><ul>
+<li>语法区别</li>
+<li>interface 支持同名合并、type 不支持</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5c2723635188252d1d34dc7d">参考文档</a></p>
+<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><p>将可枚举的值定义为枚举类型 通常为一些常量<br>枚举成员会被赋值为从 0 开始递增的数字，同时也会对枚举值到枚举名进行反向映射</p>
+<ul>
+<li>普通枚举<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">enum Days &#123;<br>  Sun,<br>  Mon,<br>  Tue,<br>  Wed,<br>  Thu,<br>  Fri,<br>  Sat<br>&#125;<br><br><span class="hljs-built_in">console</span>.log(Days[<span class="hljs-number">5</span>]); <span class="hljs-comment">// Fri</span><br><span class="hljs-built_in">console</span>.log(Days[<span class="hljs-string">&quot;Sat&quot;</span>]); <span class="hljs-comment">// 6</span><br><br><span class="hljs-comment">// 编译后结果</span><br><span class="hljs-keyword">var</span> Days;<br>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">Days</span>) </span>&#123;<br>    Days[Days[<span class="hljs-string">&quot;Sun&quot;</span>] = <span class="hljs-number">0</span>] = <span class="hljs-string">&quot;Sun&quot;</span>;<br>    Days[Days[<span class="hljs-string">&quot;Mon&quot;</span>] = <span class="hljs-number">1</span>] = <span class="hljs-string">&quot;Mon&quot;</span>;<br>    Days[Days[<span class="hljs-string">&quot;Tue&quot;</span>] = <span class="hljs-number">2</span>] = <span class="hljs-string">&quot;Tue&quot;</span>;<br>    Days[Days[<span class="hljs-string">&quot;Wed&quot;</span>] = <span class="hljs-number">3</span>] = <span class="hljs-string">&quot;Wed&quot;</span>;<br>    Days[Days[<span class="hljs-string">&quot;Thu&quot;</span>] = <span class="hljs-number">4</span>] = <span class="hljs-string">&quot;Thu&quot;</span>;<br>    Days[Days[<span class="hljs-string">&quot;Fri&quot;</span>] = <span class="hljs-number">5</span>] = <span class="hljs-string">&quot;Fri&quot;</span>;<br>    Days[Days[<span class="hljs-string">&quot;Sat&quot;</span>] = <span class="hljs-number">6</span>] = <span class="hljs-string">&quot;Sat&quot;</span>;<br>&#125;)(Days || (Days = &#123;&#125;));<br></code></pre></td></tr></table></figure>
+— 常量枚举</li>
+</ul>
+<p>常量枚举在编译阶段会被删除，并且不能包含计算成员</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> enum Directions &#123;<br>  UP, Down, Left, Right<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="interface-和-class-的区别"><a href="#interface-和-class-的区别" class="headerlink" title="interface 和 class 的区别"></a>interface 和 class 的区别</h3><p>类可以被实例化、可以实现接口  </p>
+<p>接口可以被实现、扩展，但是不能被实例化</p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>小别致真东西<br>
+        <strong>本文链接：</strong><a href="https://heiliu.github.io/2020/07/21/TypeScript/" title="https:&#x2F;&#x2F;heiliu.github.io&#x2F;2020&#x2F;07&#x2F;21&#x2F;TypeScript&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;heiliu.github.io&#x2F;2020&#x2F;07&#x2F;21&#x2F;TypeScript&#x2F;</a><br>
+        
+            true
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTkyOS8xMjQ2NQ==">
+    <script id="livere-comment-js">
+    (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1629897075324"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <!-- baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?1b3ede68905f0bbb58c39b0e279d6246';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+
+</html>

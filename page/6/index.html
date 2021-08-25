@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>HeiLiu</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="一直在路上的程序员">
+    <meta name="keywords" content="博客 程序员 分享">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="一直在路上的程序员">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HeiLiu">
+<meta property="og:url" content="https://heiliu.github.io/page/6/">
+<meta property="og:site_name" content="HeiLiu">
+<meta property="og:description" content="一直在路上的程序员">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="小别致真东西">
+<meta property="article:tag" content="博客 程序员 分享">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1629897075455">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1629897075455">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="小别致真东西" class="mdui-btn mdui-btn-icon"><img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="小别致真东西">
+            <img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西" alt="小别致真东西">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>75</div>
+        <div><span>标签</span>24</div>
+        <div><span>分类</span>18</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=969403750&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/heiliu/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Bar/" style="font-size: 10px;">Bar</a> <a href="/tags/E2E%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">E2E测试</a> <a href="/tags/Foo/" style="font-size: 12.5px;">Foo</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Note/" style="font-size: 15px;">Note</a> <a href="/tags/Quote/" style="font-size: 10px;">Quote</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/Skill/" style="font-size: 10px;">Skill</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/WebPack/" style="font-size: 10px;">WebPack</a> <a href="/tags/Yarn/" style="font-size: 10px;">Yarn</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/utils/" style="font-size: 12.5px;">utils</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 12.5px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E6%9C%89%E6%84%9F/" style="font-size: 10px;">有感</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%A0%87%E7%AD%BE/" style="font-size: 10px;">演示标签</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/Git/">Git</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Node最佳实践/">Node最佳实践</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/">Note</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/">Skill</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Test/">Test</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/demo/">demo</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/webPack/">webPack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/倒腾/">倒腾</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">9</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/有感/">有感</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活/">生活</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 小别致真东西
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://vercel.com/?utm_source=theme-nexmoe&amp;utm_campaign=oss" title="Powered By Vercel" rel="nofollow noopener"><img src="https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667" alt="Powered By Vercel" title="Powered By Vercel" data-canonical-src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="/2019/10/14/mobx-react/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="在 React 中使用 mobx 进行状态管理" class="lazyload">
+                    <h1>在 React 中使用 mobx 进行状态管理</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年10月14日</a>
+            <a><i class="nexmoefont icon-areachart"></i>405 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+        </div>
+
+        <article>
+            
+                <p>observable<br>inject<br>computed<br>action </p>
+<p>autorun<br>RunInAction<br>Reaction </p>
+<p>尽量使用箭头函数</p>
+<p>调试</p>
+<p>toJS 需要引入 =&gt; 不如直接 JSON.stringify()方便</p>
+<p>不用使用数组索引或者任何将来可能会改变的值作为 key 。如果需要的话为你的对象生成 ids。</p>
+<p><a target="_blank" rel="noopener" href="https://cn.mobx.js.org/best/react-performance.html">参考技巧</a></p>
+<!-- 中文排序 -->
+
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> array = [&#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;武汉&#x27;</span>&#125;, &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;北京&#x27;</span>&#125;, &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;上海&#x27;</span>&#125;, &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;天津&#x27;</span>&#125;];<br><span class="hljs-keyword">var</span> resultArray = array.sort(<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compareFunction</span>(<span class="hljs-params">param1, param2</span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> param1.name.localeCompare(param2.name,<span class="hljs-string">&quot;zh&quot;</span>);<br>    &#125;<br>);<br><span class="hljs-built_in">console</span>.log(resultArray);<br></code></pre></td></tr></table></figure>
+
+<!-- computed 计算属性 -->
+<p>根据现有的状态或其它计算值衍生出的值，响应式的产生一个可以被其它 observer 使用的值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123;observable, computed&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;mobx&quot;</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderLine</span> </span>&#123;<br>    @observable price = <span class="hljs-number">0</span>;<br>    @observable amount = <span class="hljs-number">1</span>;<br><br>    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">price</span>)</span> &#123;<br>        <span class="hljs-built_in">this</span>.price = price;<br>    &#125;<br>  <span class="hljs-comment">// computed 不支持箭头函数的写法</span><br>    @computed <span class="hljs-keyword">get</span> <span class="hljs-title">total</span>() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.price * <span class="hljs-built_in">this</span>.amount;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<!-- autorun -->
+
+<p>想不产生一个新值，而达到一个效果，请使用 autorun。 举例来说，效果是像打印日志、发起网络请求等这样命令式的副作用。</p>
+<p>autorun 中的值必须要手动清理才行</p>
+<!-- runInAction -->
+
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 请求底部的 table Plan 绑定数据</span><br>@action fetchShopPlanList = (): <span class="hljs-function"><span class="hljs-params">ActionResponse</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> [begin, end] = <span class="hljs-built_in">this</span>.dateRange;<br>    <span class="hljs-keyword">return</span> http<br>        .post(ApiBaseinfo_Admin_Restaurant_restaurantID_menuCalendarByDateRange, &#123;<br>            <span class="hljs-string">&#x27;:restaurantID&#x27;</span>: globalStore.currentShopID,<br>            begin,<br>            end,<br>        &#125;)<br>        .then(<span class="hljs-function">(<span class="hljs-params">&#123; error, data &#125;</span>) =&gt;</span> &#123;<br>            <span class="hljs-keyword">if</span> (error) &#123;<br>                <span class="hljs-keyword">return</span> &#123; error &#125;;<br>            &#125;<br><br>            runInAction(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-keyword">const</span> &#123; menuCalendarList &#125; = data;<br>                <span class="hljs-comment">// 遍历筛选绑定菜单项</span><br>                <span class="hljs-built_in">this</span>.boundObj = menuCalendarList.reduce(<span class="hljs-function">(<span class="hljs-params">preObj, mealPlan</span>) =&gt;</span> &#123;<br>                    <span class="hljs-keyword">const</span> &#123; color, name, date &#125; = mealPlan;<br>                    <span class="hljs-keyword">if</span> (color) &#123;<br>                        preObj[<span class="hljs-string">`<span class="hljs-subst">$&#123;date&#125;</span>_<span class="hljs-subst">$&#123;name&#125;</span>`</span>] = color;<br>                    &#125;<br><br>                    <span class="hljs-keyword">return</span> preObj;<br>                &#125;, &#123;&#125;);<br>                <span class="hljs-comment">// 在一个请求的 action中直接去修改 state,可能会存在mobx 检测不到的情况，需要包裹 runInAction</span><br>                <span class="hljs-built_in">this</span>.shopCalendarList = data.menuCalendarList;<br>            &#125;);<br><br>            <span class="hljs-keyword">return</span> &#123; data &#125;;<br>        &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/10/13/VsCodeShortCuts/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="VSCode 快捷键(持续更新)" class="lazyload">
+                    <h1>VSCode 快捷键(持续更新)</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年10月13日</a>
+            <a><i class="nexmoefont icon-areachart"></i>221 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+        </div>
+
+        <article>
+            
+                <h1 id="文档编辑中键盘快捷方式"><a href="#文档编辑中键盘快捷方式" class="headerlink" title="文档编辑中键盘快捷方式"></a>文档编辑中键盘快捷方式</h1><h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><ul>
+<li>快速移动光标（按单词跳: <strong>option &lt;- -&gt;</strong> </li>
+<li>行首行尾移动光标 : <strong>command &lt;- -&gt;</strong></li>
+<li>移动到文件头尾: <strong>commad &lt;- -&gt;</strong> 上下方向键</li>
+</ul>
+<h2 id="选中"><a href="#选中" class="headerlink" title="选中"></a>选中</h2><ul>
+<li>选中操作: <strong>shift &lt;- -&gt;</strong> 方向键操作选中方向 </li>
+<li>选中光标所在单词: <strong>command D</strong></li>
+</ul>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ul>
+<li>搜索时切换搜索结果: <strong>shift Enter</strong> </li>
+<li>文件相对路径: shift command H 原shortCut =&gt; 自定义 <strong>command H</strong> </li>
+<li>新建未命名文件: command N  </li>
+<li>搜索光标所在单词: command E </li>
+<li>跳转到指定行： ctrl + G</li>
+<li>选中所在的代码块(select Bracket)，对花括号的代码块较友好: <strong>option command B</strong> </li>
+<li>切换tab: <strong>option commmad ⬅️/➡️</strong> </li>
+<li>删除整个单词: <strong>option backspace</strong></li>
+<li>向上下复制整行: <strong>option shift ⬆️/⬇️</strong> 上下方向键</li>
+<li>找到当前文件所有与选中相同的文档 达到批量修改的目的(change all ocurrences): <strong>shift command I</strong></li>
+</ul>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/10/13/classnames/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="classnames 的用法总结" class="lazyload">
+                    <h1>classnames 的用法总结</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年10月13日</a>
+            <a><i class="nexmoefont icon-areachart"></i>515 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="React-和-Vue-class对比"><a href="#React-和-Vue-class对比" class="headerlink" title="React 和 Vue class对比"></a>React 和 Vue class对比</h2><p>在React项目开发中，类名的管理不像 Vue 那么方便;</p>
+<p>如何为组件添加 CSS 的 class？<br>传递一个字符串作为 className 属性：</p>
+<p>render() {<br>  return <span className="menu navigation-menu">Menu</span><br>}<br>CSS 的 class 依赖组件的 props 或 state 的情况很常见：</p>
+<p>render() {<br>  let className = ‘menu’;<br>  if (this.props.isActive) {<br>    className += ‘ menu-active’;<br>  }<br>  return <span className={className}>Menu</span><br>}</p>
+<p>在官方的提示下推荐开发者使用 <a target="_blank" rel="noopener" href="https://github.com/JedWatson/classnames">classnames</a> npm 包来管理自己的类名会方便很多</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br><span class="hljs-meta">  &#x27;use strict&#x27;</span>;<br>  <span class="hljs-comment">// =&gt;  Object.hasOwnProperty   用于判断某个成员是否在对象内</span><br>  <span class="hljs-keyword">var</span> hasOwn = &#123;&#125;.hasOwnProperty;<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">classNames</span> (<span class="hljs-params"></span>) </span>&#123;<br>     <span class="hljs-comment">// 存储 className 值</span><br>    <span class="hljs-keyword">var</span> classes = [];<br><br>    <span class="hljs-comment">// 循环实参， arguments就是实际调用函数传入的参数，类似数组</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">arguments</span>.length; i++) &#123;<br>      <span class="hljs-comment">// 获取实参value</span><br>      <span class="hljs-keyword">var</span> arg = <span class="hljs-built_in">arguments</span>[i];<br><br>      <span class="hljs-comment">// 跳过false条件 =&gt; false, null, undefined, NaN, 空, ...</span><br>      <span class="hljs-keyword">if</span> (!arg) <span class="hljs-keyword">continue</span>;<br><br>      <span class="hljs-comment">// 判断传入参数的类型</span><br>      <span class="hljs-keyword">var</span> argType = <span class="hljs-keyword">typeof</span> arg;<br><br>      <span class="hljs-comment">// 如果参数的类型是 string 或者 number</span><br>      <span class="hljs-keyword">if</span> (argType === <span class="hljs-string">&#x27;string&#x27;</span> || argType === <span class="hljs-string">&#x27;number&#x27;</span>) &#123;<br>        <span class="hljs-comment">// 直接追加到classes数组后面</span><br>        classes.push(arg);<br><br>      <span class="hljs-comment">// 如果参数是数组并且长度大于0</span><br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Array</span>.isArray(arg) &amp;&amp; arg.length) &#123;<br>        <span class="hljs-comment">// 调用自身函数，利用apply可以将数组转成字符串</span><br>        <span class="hljs-keyword">var</span> inner = classNames.apply(<span class="hljs-literal">null</span>, arg);<br><br>        <span class="hljs-comment">// 现在是一个字符串，隐士判断布尔值</span><br>        <span class="hljs-keyword">if</span> (inner) &#123;<br>          <span class="hljs-comment">// 追加到数组后面</span><br>          classes.push(inner);<br>        &#125;<br>      <span class="hljs-comment">// 如果传入的参数是对象</span><br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (argType === <span class="hljs-string">&#x27;object&#x27;</span>) &#123;<br>        <span class="hljs-comment">// 对object进行遍历</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> arg) &#123;<br>          <span class="hljs-comment">// 判断key是否存在arg对象内并且key的值隐士转换为true</span><br>          <span class="hljs-keyword">if</span> (hasOwn.call(arg, key) &amp;&amp; arg[key]) &#123;<br>            <span class="hljs-comment">// 将值追加到classes数组后面</span><br>            classes.push(key);<br>          &#125;<br>        &#125;<br>      &#125;<br>    &#125;<br>    <span class="hljs-comment">// 将数组连接成字符串以空格拼接  =&gt; a b c</span><br>    <span class="hljs-keyword">return</span> classes.join(<span class="hljs-string">&#x27; &#x27;</span>);<br>  &#125;<br><br>  <span class="hljs-comment">// 如果是node.js环境运行</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span> !== <span class="hljs-string">&#x27;undefined&#x27;</span> &amp;&amp; <span class="hljs-built_in">module</span>.exports) &#123;<br>    classNames.default = classNames;<br>    <span class="hljs-built_in">module</span>.exports = classNames;<br><br>  <span class="hljs-comment">// 如果用的requirejs模块管理 AMD</span><br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> define === <span class="hljs-string">&#x27;function&#x27;</span> &amp;&amp; <span class="hljs-keyword">typeof</span> define.amd === <span class="hljs-string">&#x27;object&#x27;</span> &amp;&amp; define.amd) &#123;<br>    define(<span class="hljs-string">&#x27;classnames&#x27;</span>, [], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> classNames;<br>  &#125;);<br><br>  <span class="hljs-comment">// 否则运行于浏览器环境</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-built_in">window</span>.classNames = classNames;<br>  &#125;<br>&#125;());<br></code></pre></td></tr></table></figure>
+<!-- TODO -->
+
+<p><a target="_blank" rel="noopener" href="https://github.com/JedWatson/classnames">classnames github库</a></p>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/08/14/E2ETest/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="E2E 测试" class="lazyload">
+                    <h1>E2E 测试</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月14日</a>
+            <a><i class="nexmoefont icon-areachart"></i>929 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>E2E 测试：</strong> 端到端测试（end to end）属于黑盒测试，是站在用户的角度进行的测试，自动化模拟用户在 UI 界面上的每一个操作（输入、点击、跳转等），确保整个操作流程顺畅且符合预期。</p>
+<p>公司的小程序的 e2e 测试工作也已经完成一段时间了，最近项目新增页面也对应增加里测试代码。手头有时间最重要的是有心情，开始回顾一下整个小程序测试工作流程。 小程序的测试对于我来说还是一个全新的领域，接到要着手对手里的项目补充测试用例的工作安排马上开始着手调研小程序的 e2e 测试方案。  </p>
+<p>首先开始看小程序官方自动化文档，在文档的描述里面明确指出小程序的自动化不提供测试框架（所以还需要选一个相配套的测试框架, 决定选用 jest），只是提供了小程序开发工具的自动化 SDK，也支持通过远程调试控制真机测试（调用后脚本会启动工具真机调试功能，并且在控制台上打印二维码，然后你需要使用真机扫码连接使自动化脚本继续跑下去）。</p>
+<p>官方的 SDK 中的 API 主要包括三大模块：</p>
+<ul>
+<li><code>Automator</code> 开发工具相关，提供连接及启动开发工具的方法</li>
+<li><code>MiniProgram</code> 小程序相关，提供控制小程序的方法（跳转、系统信息等），相当于开发中的 <code>wx</code> 对象</li>
+<li><code>Page</code>  页面相关，获取页面路由、数据、元素及元素属性、节点选择等</li>
+<li><code>Element</code> 页面节点选择、属性、事件等</li>
+</ul>
+<p>从中可以看出该 <code>SDK</code> 提供了小程序测试中的基础: 操作开发工具、页面跳转、选取页面 &amp;&amp; 节点对象、事件操作等<br>但是还缺少一些断言语句及其他更多能力<br>官方脚本示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> automator = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;miniprogram-automator&#x27;</span>)<br><br>describe(<span class="hljs-string">&#x27;index&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">let</span> miniProgram<br>  <span class="hljs-keyword">let</span> page<br><br>  beforeAll(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    miniProgram = <span class="hljs-keyword">await</span> automator.launch(&#123;<br>      <span class="hljs-attr">projectPath</span>: <span class="hljs-string">&#x27;path/to/miniprogram-demo&#x27;</span><br>    &#125;)<br>    page = <span class="hljs-keyword">await</span> miniProgram.reLaunch(<span class="hljs-string">&#x27;/page/component/index&#x27;</span>)<br>    <span class="hljs-keyword">await</span> page.waitFor(<span class="hljs-number">500</span>)<br>  &#125;, <span class="hljs-number">30000</span>)<br><br>  afterAll(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">await</span> miniProgram.close()<br>  &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015724775">参考链接</a>  </p>
+<h2 id="小程序自动化"><a href="#小程序自动化" class="headerlink" title="小程序自动化"></a>小程序自动化</h2><p>小程序自动化SDK为开发者提供了一套通过外部脚本操控小程序的方案，从而实现小程序自动化测试的目的。  </p>
+<p>通过该 SDK，你可以做到以下事情：</p>
+<ul>
+<li>控制小程序跳转到指定页面  </li>
+<li>获取小程序页面数据  </li>
+<li>获取小程序页面元素状态  </li>
+<li>触发小程序元素绑定事件  </li>
+<li>往 AppService 注入代码片段  </li>
+<li>调用 wx 对象上任意接口  </li>
+</ul>
+<p>安装小程序自动化SDK：  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">npm install miniprogram-automator --save-dev<br></code></pre></td></tr></table></figure>
+
+
+<ol>
+<li>新功能不需要急着写AT，应该交给QA人肉测试，待功能上线后再慢慢补齐</li>
+<li>反28原则： 28原则是指最重要的只占其中一小部分，约20%，其余80%尽管是多数却不重要，但是写AT需要反过来，我们优先写那80%不常用到的功能，至于那重要的20%，由于经常被使用，它能不能工作一目了然，其实也是最健壮的，需要写AT来覆盖的优先级就不显得这么高了，反而那不常用的80%功能往往没有经过大量的用户测试，很容易在某次迭代中产生新的bug。</li>
+<li>优先写happy path，优先保证一个功能模块的主线畅通，再写边界值测试。</li>
+</ol>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/08/05/Array/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="数组" class="lazyload">
+                    <h1>数组</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月05日</a>
+            <a><i class="nexmoefont icon-areachart"></i>1.4k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><blockquote>
+<p>一个存储元素的线性集合， 元素可以通过索引（通常为数字）来任意存取。  </p>
+</blockquote>
+<p>数字索引在内部被转换为字符串类型、这是因为在javaScript中对象的属性名必须是字符串。而数组只是一种特殊的对象</p>
+<h3 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h3><ul>
+<li>通过<code>构造函数</code> <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">&lt;!-- 传入一组元素进行数组初始化 --&gt;<br><span class="hljs-keyword">var</span> arr = New <span class="hljs-built_in">Array</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);<br>print(arr.length); <span class="hljs-comment">// 5</span><br>&lt;!-- 只传一个元素，声明数组的初始化长度, 其中每个元素初始化为 <span class="hljs-literal">undefined</span> --&gt;<br><span class="hljs-keyword">var</span> arr1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">10</span>);<br>print(arr1.length); <span class="hljs-comment">// 10</span><br></code></pre></td></tr></table></figure>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/07/31/multiSSH/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: NaN%;"> 
+                    <img data-src="https://cdn.pixabay.com/photo/2020/12/27/12/07/sunrise-5863751__480.png" data-sizes="auto" alt="同一台电脑配置多个SSH" class="lazyload">
+                    <h1>同一台电脑配置多个SSH</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月31日</a>
+            <a><i class="nexmoefont icon-areachart"></i>325 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="配置多个SSH"><a href="#配置多个SSH" class="headerlink" title="配置多个SSH"></a>配置多个SSH</h2><p>在工作中多访问公司的gitlab仓库，而在生活中又有自己的github仓库<br>记录一下方便日后查找</p>
+<hr>
+<p>一般电脑中的SSH key 存放在 <code>～/.ssh</code>目录中 如果有配置过的话存在 <code>id_rsa</code> \ <code>id_rsa.pub</code> 私钥和公钥, 将公钥配置到需要的代码平台</p>
+<p>生成SSH key</p>
+<h3 id="本地配置多个ssh-key"><a href="#本地配置多个ssh-key" class="headerlink" title="本地配置多个ssh key"></a>本地配置多个ssh key</h3><ul>
+<li><p>1、为公司生成一对秘钥ssh key  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">ssh-keygen -t rsa -C <span class="hljs-string">&#x27;yourEmail@xx.com&#x27;</span> -f ~<span class="hljs-regexp">/.ssh/gi</span>tlab_id_rsa<br></code></pre></td></tr></table></figure></li>
+<li><p>2、为github生成一对秘钥ssh key  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">ssh-keygen -t rsa -C <span class="hljs-string">&#x27;yourEmail2@xx.com&#x27;</span> -f ~<span class="hljs-regexp">/.ssh/gi</span>thub_id_rsa<br></code></pre></td></tr></table></figure></li>
+<li><p>3、在~/.ssh目录下新建名称为<code>config</code>的文件（无后缀名）。  用于配置多个不同的host使用不同的ssh key，常用内容如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"># gitlab<br>Host gitlab.planetmeican.com<br>    HostName gitlab.planetmeican.com<br>    Port <span class="hljs-number">2345</span><br>    User git<br>    PreferredAuthentications publickey<br>    IdentityFile ~<span class="hljs-regexp">/.ssh/gi</span>tlab_id_rsa<br># github<br>Host github.com<br>    HostName github.com<br>    PreferredAuthentications publickey<br>    IdentityFile ~<span class="hljs-regexp">/.ssh/gi</span>thub_id_rsa<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="配置文件参数"><a href="#配置文件参数" class="headerlink" title="配置文件参数"></a>配置文件参数</h3><figure class="highlight vala"><table><tr><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># Host : Host可以看作是一个你要识别的模式，对识别的模式，进行配置对应的的主机名和ssh文件</span><br><span class="hljs-meta"># port: 端口号，一般不需要配置</span><br><span class="hljs-meta"># HostName : 要登录主机的主机名</span><br><span class="hljs-meta">#PreferredAuthentications: 授权验证方式</span><br><span class="hljs-meta"># User : 登录名</span><br><span class="hljs-meta"># IdentityFile : 指明上面User对应的identityFile路径</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>4、分别往gitlab和github上添加生成的公钥 </li>
+</ul>
+<h2 id="ssh-agent-与-SSH的区别"><a href="#ssh-agent-与-SSH的区别" class="headerlink" title="ssh-agent 与 SSH的区别"></a>ssh-agent 与 SSH的区别</h2><p><a target="_blank" rel="noopener" href="http://yijiebuyi.com/blog/4b5c272e7058cb331098250c8e98eb3e.html">参考链接</a></p>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/07/28/gitNote/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Git 笔记" class="lazyload">
+                    <h1>Git 笔记</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月28日</a>
+            <a><i class="nexmoefont icon-areachart"></i>732 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="Git-常用的命令笔记"><a href="#Git-常用的命令笔记" class="headerlink" title="Git 常用的命令笔记"></a>Git 常用的命令笔记</h2><p>Commitizen是一个撰写合格 Commit message 的工具。 </p>
+<h3 id="本地分支重命名"><a href="#本地分支重命名" class="headerlink" title="本地分支重命名"></a>本地分支重命名</h3><p>git branch -m old new</p>
+<h3 id="链接远程仓库"><a href="#链接远程仓库" class="headerlink" title="链接远程仓库"></a>链接远程仓库</h3><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">git remote add origin 仓库地址<br>仓库地址：https:<span class="hljs-regexp">//gi</span>t.coding.net<span class="hljs-regexp">/xxxxxxxxxxxxx/my</span>-project.git  <br>git push -u orgin master<br></code></pre></td></tr></table></figure>
+
+<h3 id="删除远程仓库"><a href="#删除远程仓库" class="headerlink" title="删除远程仓库"></a>删除远程仓库</h3><figure class="highlight maxima"><table><tr><td class="code"><pre><code class="hljs maxima">git remote <span class="hljs-built_in">remove</span> <span class="hljs-built_in">origin</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="修改远程仓库（源地址）"><a href="#修改远程仓库（源地址）" class="headerlink" title="修改远程仓库（源地址）"></a>修改远程仓库（源地址）</h3><figure class="highlight dsconfig"><table><tr><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">git</span> <span class="hljs-string">remote</span> <span class="hljs-built_in">set-url</span> <span class="hljs-string">origin</span> []<br></code></pre></td></tr></table></figure>
+<p>如下：</p>
+<figure class="highlight dsconfig"><table><tr><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">Project</span> <span class="hljs-string">mctDev</span>/<span class="hljs-string">cafeteria-supplier-desktop</span> <span class="hljs-string">was</span> <span class="hljs-string">moved</span> <span class="hljs-string">to</span> <span class="hljs-string">another</span> <span class="hljs-string">location</span><br><br><span class="hljs-string">The</span> <span class="hljs-string">project</span> <span class="hljs-string">is</span> <span class="hljs-string">now</span> <span class="hljs-string">located</span> <span class="hljs-string">under</span> <span class="hljs-string">cafereria-fe</span> / <span class="hljs-string">cafeteria-supplier-desktop</span><br><br><span class="hljs-string">To</span> <span class="hljs-string">update</span> <span class="hljs-string">the</span> <span class="hljs-string">remote</span> <span class="hljs-string">url</span> <span class="hljs-string">in</span> <span class="hljs-string">your</span> <span class="hljs-string">local</span> <span class="hljs-string">repository</span> <span class="hljs-string">run</span> (<span class="hljs-string">for</span> <span class="hljs-string">ssh</span>):<br><br><span class="hljs-string">git</span> <span class="hljs-string">remote</span> <span class="hljs-built_in">set-url</span> <span class="hljs-string">origin</span> <span class="hljs-string">git</span>@<span class="hljs-string">gitlab</span>.<span class="hljs-string">planetmeican</span>.<span class="hljs-string">com:cafereria-</span><span class="hljs-string">fe</span>/<span class="hljs-string">cafeteria-supplier-desktop</span>.<span class="hljs-string">git</span><br><br><span class="hljs-string">or</span> <span class="hljs-string">for</span> <span class="hljs-string">http</span>(<span class="hljs-string">s</span>):<br><br><span class="hljs-string">git</span> <span class="hljs-string">remote</span> <span class="hljs-built_in">set-url</span> <span class="hljs-string">origin</span> <span class="hljs-string">https</span>://<span class="hljs-string">gitlab</span>.<span class="hljs-string">planetmeican</span>.<span class="hljs-string">com</span>/<span class="hljs-string">cafereria-fe</span>/<span class="hljs-string">cafeteria-supplier-desktop</span>.<span class="hljs-string">git</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h4><p>  git remote set-url –add origin 就是往当前git项目的config文件里增加一行记录<br>  config文件打开方式有两种：</p>
+<p>  使用命令<code>git config -e</code><br>  在当前git项目的根目录下，文件位于 .git/config (.git目录为隐藏文件)<br>  你每执行一次git remote set-url –add origin 就会增加一行，如下图：</p>
+<p>  <code>git remote -v</code>:显示当前所有远程库的详细信息，显示格式为 远程库名字 url连接(类型)<br>  <a target="_blank" rel="noopener" href="https://my.oschina.net/shede333/blog/299032">参考链接</a></p>
+<h3 id="git-checkout的用法"><a href="#git-checkout的用法" class="headerlink" title="git checkout的用法"></a>git checkout的用法</h3><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">git checkout  <span class="hljs-regexp">//</span> 不跟参数，则对工作区进行检查 可以返回工作区文件的状态<br>git checkout -b 分支名 <span class="hljs-regexp">//</span> 切换到对应分支 如果没有则新建一条分支<br>git checkout -B 分支名 <span class="hljs-regexp">//</span> 强制切换分支 如果存在同名分支会发生覆盖<br>git checkout commit_id(hash) <span class="hljs-regexp">//</span> 切换到对应的commit版本 （分离头指针） <br>  <span class="hljs-regexp">//</span>此时的HEAD不指向分支，指向对应的commit_id 通过 git checkout master 切回分支<br></code></pre></td></tr></table></figure>
+<p>  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/hutaoer/archive/2013/05/07/git_checkout.html">checkout命令详解参考</a></p>
+<h3 id="撤销本地修改的文件"><a href="#撤销本地修改的文件" class="headerlink" title="撤销本地修改的文件"></a>撤销本地修改的文件</h3><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">git checkout [filename] <span class="hljs-regexp">//</span> 撤销某个文件的修改<br>git checkout .  <span class="hljs-regexp">//</span> 撤销所有修改的文件 <br></code></pre></td></tr></table></figure>
+
+<h3 id="撤回-add-commit"><a href="#撤回-add-commit" class="headerlink" title="撤回 add/commit"></a>撤回 add/commit</h3><h4 id="将add到暂存区后的提交撤回"><a href="#将add到暂存区后的提交撤回" class="headerlink" title="将add到暂存区后的提交撤回"></a>将add到暂存区后的提交撤回</h4><p>  git reset head 文件名</p>
+<h4 id="修改commit标注"><a href="#修改commit标注" class="headerlink" title="修改commit标注"></a>修改commit标注</h4><figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">commit</span> -m &quot;aaaa&quot; // 提交一个<span class="hljs-keyword">commit</span><br>git <span class="hljs-keyword">commit</span> <span class="hljs-comment">--amend =&gt; 开启vim编辑器 编辑后保存退出</span><br></code></pre></td></tr></table></figure>
+<h4 id="撤回commit"><a href="#撤回commit" class="headerlink" title="撤回commit"></a>撤回commit</h4>  <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">git reset --soft commit_id <span class="hljs-regexp">//</span> 撤回commit 到commit_id soft 只是撤回commit 本地文件不会修改<br>git reset --hard commit_id <span class="hljs-regexp">//</span> 撤回commit 到commit_id hard 只是撤回commit 本地文件回退<br></code></pre></td></tr></table></figure>
+<h3 id="拉取远程分支"><a href="#拉取远程分支" class="headerlink" title="拉取远程分支"></a>拉取远程分支</h3><figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">git</span> pull origin<span class="hljs-meta"> [分支名]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="添加-删除远程分支"><a href="#添加-删除远程分支" class="headerlink" title="添加/删除远程分支"></a>添加/删除远程分支</h3><ul>
+<li><p>将本地分支推送到远程分支上，如果远程分支不存在，则创建此远程分支</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><code class="hljs x86asm">git <span class="hljs-keyword">push</span> origin 本地分支名:远程分支名<br><br>$ git <span class="hljs-keyword">push</span> origin <span class="hljs-keyword">test</span>:master         // 提交本地<span class="hljs-keyword">test</span>分支作为远程的master分支 <br>$ git <span class="hljs-keyword">push</span> origin <span class="hljs-keyword">test</span>:<span class="hljs-keyword">test</span>           // 提交本地<span class="hljs-keyword">test</span>分支作为远程的<span class="hljs-keyword">test</span>分支<br>//好像只写这一句，远程的github就会自动创建一个<span class="hljs-keyword">test</span>分支<br></code></pre></td></tr></table></figure></li>
+<li><p>如果想删除远程的分支呢？类似于上面，如果:左边的分支为空，那么将删除:右边的远程的分支。</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> :远程分支名(你要删除的远程分支名)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="git-reflog"><a href="#git-reflog" class="headerlink" title="git reflog"></a>git reflog</h3><p> 可以显示已删除的操作</p>
+<h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h3>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/07/25/code-highlight/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Code Highlight Style test" class="lazyload">
+                    <h1>Code Highlight Style test</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月25日</a>
+            <a><i class="nexmoefont icon-areachart"></i>810 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 5 分钟</a>
+        </div>
+
+        <article>
+            
+                <p>Make sure all the code blocks highlighted correctly. All the code samples are come from the demo of <a target="_blank" rel="noopener" href="https://highlightjs.org/">https://highlightjs.org</a></p>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/07/22/0722/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="前端开发工具整理" class="lazyload">
+                    <h1>前端开发工具整理</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月22日</a>
+            <a><i class="nexmoefont icon-areachart"></i>171 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具:"></a>开发工具:</h2><p><strong>1.代码编辑器</strong>  </p>
+<ul>
+<li><p>visual studio Code  </p>
+<ul>
+<li><p>插件  </p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">- </span>Chinese 中文插件<br><span class="hljs-bullet">- </span>language-Stylus <br><span class="hljs-bullet">- </span>LeetCode<br><span class="hljs-bullet">- </span>Vetur<br><span class="hljs-bullet">- </span>Prettier<br><span class="hljs-bullet">- </span>React/Redux/react-router Snippets react便捷输入<br><span class="hljs-bullet">- </span>Prettier<br><span class="hljs-bullet">- </span>GitLens<br><span class="hljs-bullet">- </span>Markdown All in One<br><span class="hljs-bullet">- </span>npm Intellisense<br><span class="hljs-bullet">- </span>Quokka.js<br><span class="hljs-bullet">- </span>Relative Path<br><span class="hljs-bullet">- </span>JavaScript code snippets<br><span class="hljs-bullet">- </span>CSS Peek<br><span class="hljs-bullet">- </span>Bracket Pair Colorizer<br><span class="hljs-bullet">- </span>Better Comments<br></code></pre></td></tr></table></figure></li>
+<li><p>主题  </p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">one</span> dark <span class="hljs-keyword">pro</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p><strong>2.浏览器及插件</strong></p>
+<p>   Chrome 浏览器</p>
+   <figure class="highlight nginx"><table><tr><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Ghelper</span> 翻墙插件 可在GitHub上获取<br>ADBlock<br>marinara（番茄工作法助理）<br>FireShot<br>扩展管理器<br>WEB前端助手<br>划词翻译<br>Imagus<br>Octotree<br>React/Vue develop Tool<br>Chrono<br>掘金插件<br>Json-handle  <br></code></pre></td></tr></table></figure>
+
+<p><strong>3.其他工具</strong>  </p>
+<ul>
+<li><p>命令行开发工具：  </p>
+<ul>
+<li>iterm2  </li>
+<li>homebrew</li>
+<li>oh-my-zsh  </li>
+</ul>
+</li>
+<li><p>Git/gitLab &amp;&amp; 配置SSH  </p>
+</li>
+<li><p>node &amp;&amp; NVM  </p>
+ <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><br>nvm install <span class="hljs-number">8.9</span><span class="hljs-number">.0</span> <span class="hljs-comment">// 安装需要的node版本</span><br>nvm use <span class="hljs-number">8.9</span><span class="hljs-number">.0</span> <span class="hljs-comment">// 切换使用相对应的node版本</span><br>nvm list<br>nvm version<br><br></code></pre></td></tr></table></figure></li>
+</ul>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/07/15/2019Plan/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="二零一九年下半年大概规划" class="lazyload">
+                    <h1>二零一九年下半年大概规划</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月15日</a>
+            <a><i class="nexmoefont icon-areachart"></i>20 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+        </div>
+
+        <article>
+            
+                原始文字是人类用来纪录特定事物、简化图像而成的书写符号。文字在发展早期都是图画形式的，有些是以形表意，有些是以形表音，其中有表意文字，与语音无甚关系，中国文字便是从此渐次演变而成。有些中文字可以从表面、部首、字旁看到一些联系旁通的字义。而这些特色是拼音文字所没有的。其实这是一篇加密文章，需要密码查看。
+            
+        </article>
+    </div>
+    
+</section>
+
+    <nav class="nexmoe-page-nav">
+        <a class="extend prev" rel="prev" href="/page/5/"><i class="nexmoefont icon-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="nexmoefont icon-right"></i></a>
+    </nav>
+  
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1629897075456"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <!-- baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?1b3ede68905f0bbb58c39b0e279d6246';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+
+</html>

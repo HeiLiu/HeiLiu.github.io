@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>标签：redux - HeiLiu</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="一直在路上的程序员">
+    <meta name="keywords" content="博客 程序员 分享">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="一直在路上的程序员">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HeiLiu">
+<meta property="og:url" content="https://heiliu.github.io/tags/redux/">
+<meta property="og:site_name" content="HeiLiu">
+<meta property="og:description" content="一直在路上的程序员">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="小别致真东西">
+<meta property="article:tag" content="博客 程序员 分享">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1629897075479">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1629897075479">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="小别致真东西" class="mdui-btn mdui-btn-icon"><img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="小别致真东西">
+            <img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西" alt="小别致真东西">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>75</div>
+        <div><span>标签</span>24</div>
+        <div><span>分类</span>18</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=969403750&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/heiliu/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Bar/" style="font-size: 10px;">Bar</a> <a href="/tags/E2E%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">E2E测试</a> <a href="/tags/Foo/" style="font-size: 12.5px;">Foo</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Note/" style="font-size: 15px;">Note</a> <a href="/tags/Quote/" style="font-size: 10px;">Quote</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/Skill/" style="font-size: 10px;">Skill</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/WebPack/" style="font-size: 10px;">WebPack</a> <a href="/tags/Yarn/" style="font-size: 10px;">Yarn</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/utils/" style="font-size: 12.5px;">utils</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 12.5px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E6%9C%89%E6%84%9F/" style="font-size: 10px;">有感</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%A0%87%E7%AD%BE/" style="font-size: 10px;">演示标签</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/Git/">Git</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Node最佳实践/">Node最佳实践</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/">Note</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/">Skill</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Test/">Test</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/demo/">demo</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/webPack/">webPack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/倒腾/">倒腾</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">9</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/有感/">有感</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活/">生活</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 小别致真东西
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://vercel.com/?utm_source=theme-nexmoe&amp;utm_campaign=oss" title="Powered By Vercel" rel="nofollow noopener"><img src="https://camo.githubusercontent.com/37b009b52b3a9af7886f52e75cd76d1b32fef331ab1dc2108089c0ced0b7635f/68747470733a2f2f7777772e6461746f636d732d6173736574732e636f6d2f33313034392f313631383938333239372d706f77657265642d62792d76657263656c2e737667" alt="Powered By Vercel" title="Powered By Vercel" data-canonical-src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="/2020/06/01/redux/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="redux 笔记" class="lazyload">
+                    <h1>redux 笔记</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年06月01日</a>
+            <a><i class="nexmoefont icon-areachart"></i>1k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 5 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>Action 本质是 JS 对象，是把数据从应用传到 store 的唯一来源， 一般通过 store.dispatch(action) 将 action 传到 store。action 只是描述有事情发生</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> ADD_TODO = <span class="hljs-string">&#x27;ADD_TODO&#x27;</span>;<br><br>&#123;<br>  <span class="hljs-attr">type</span>: ADD_TODO,<br>  <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Build my first Redux app&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作（通常为常量）  </li>
+<li>当 action 过多的时候，使用单独的文件进行管理 actionTypes</li>
+</ul>
+<h3 id="action-创建函数"><a href="#action-创建函数" class="headerlink" title="action 创建函数"></a>action 创建函数</h3><p>Action 创建函数 就是生成 action 的方法。“action” 和 “action 创建函数” 这两个概念很容易混在一起，使用时最好注意区分。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> ADD_TODO = <span class="hljs-string">&#x27;ADD_TODO&#x27;</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addTodo</span>(<span class="hljs-params">text</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">type</span>: ADD_TODO,<br>    text<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这样做将使 action 创建函数更容易被移植和测试  </p>
+<p>Redux 中只需把 action 创建函数的结果传给 dispatch() 方法即可发起一次 dispatch 过程。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">dispatch(addTodo(text));<br></code></pre></td></tr></table></figure>
+<p>store 里能直接通过 store.dispatch() 调用 dispatch() 方法，但是多数情况下你会使用 react-redux 提供的 connect() 帮助器来调用。<br>使用 connect() 前，需要先定义 mapStateToProps 这个函数来 <strong>指定如何把当前 Redux store state 映射到展示组件的 props 中</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DemoComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;<br>  <span class="hljs-comment">// ...</span><br>&#125;<br><br><span class="hljs-keyword">const</span> mapStateToProps = <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> (&#123;<br>    <span class="hljs-attr">text</span>: state.text,<br>&#125;);<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(mapStateToProps)(DemoComponent);<br></code></pre></td></tr></table></figure>
+
+<p>除了 state，还可以分发 dispatch </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; connect &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-redux&#x27;</span><br><span class="hljs-keyword">import</span> &#123; toggleTodo &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../actions&#x27;</span><br><span class="hljs-keyword">import</span> TodoList <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../components/TodoList&#x27;</span><br><br><span class="hljs-keyword">const</span> getVisibleTodos = <span class="hljs-function">(<span class="hljs-params">todos, filter</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">switch</span> (filter) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SHOW_ALL&#x27;</span>:<br>      <span class="hljs-keyword">return</span> todos<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SHOW_COMPLETED&#x27;</span>:<br>      <span class="hljs-keyword">return</span> todos.filter(<span class="hljs-function"><span class="hljs-params">t</span> =&gt;</span> t.completed)<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SHOW_ACTIVE&#x27;</span>:<br>      <span class="hljs-keyword">return</span> todos.filter(<span class="hljs-function"><span class="hljs-params">t</span> =&gt;</span> !t.completed)<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> mapStateToProps = <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">todos</span>: getVisibleTodos(state.todos, state.visibilityFilter)<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> mapDispatchToProps = <span class="hljs-function"><span class="hljs-params">dispatch</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">onTodoClick</span>: <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> &#123;<br>      dispatch(toggleTodo(id))<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> VisibleTodoList = connect(<br>  mapStateToProps,<br>  mapDispatchToProps<br>)(TodoList)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> VisibleTodoList<br></code></pre></td></tr></table></figure>
+
+<h2 id="异步-Action"><a href="#异步-Action" class="headerlink" title="异步 Action"></a>异步 Action</h2><!-- TODO -->
+
+<h2 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h2><p>Reducers 指定了应用状态的变化如何响应 actions 并发送到 store 的，描述如何更新 state。</p>
+<p>Reducer 是纯函数，它不应做有副作用的操作，如 API 调用或路由跳转。这些应该在 dispatch action 前发生</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123;<br>  ADD_TODO,<br>  TOGGLE_TODO,<br>  SET_VISIBILITY_FILTER,<br>  VisibilityFilters<br>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./actionTypes&#x27;</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">todoApp</span>(<span class="hljs-params">state = initialState, action</span>) </span>&#123;<br>  <span class="hljs-keyword">switch</span> (action.type) &#123;<br>    <span class="hljs-keyword">case</span> SET_VISIBILITY_FILTER:<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, state, &#123;<br>        <span class="hljs-attr">visibilityFilter</span>: action.filter<br>      &#125;)<br>    <span class="hljs-keyword">case</span> ADD_TODO:<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, state, &#123;<br>        <span class="hljs-attr">todos</span>: [<br>          ...state.todos,<br>          &#123;<br>            <span class="hljs-attr">text</span>: action.text,<br>            <span class="hljs-attr">completed</span>: <span class="hljs-literal">false</span><br>          &#125;<br>        ]<br>      &#125;)<br>    <span class="hljs-attr">default</span>:<br>      <span class="hljs-keyword">return</span> state<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">Object</span>.assign(state, &#123;<span class="hljs-attr">visibilityFilter</span>: action.filter&#125;) <span class="hljs-comment">// ❌</span><br><span class="hljs-built_in">Object</span>.assign(&#123;&#125;, state, &#123;<span class="hljs-attr">visibilityFilter</span>: action.filter&#125;) <br></code></pre></td></tr></table></figure>
+<ul>
+<li>不要修改 state， object()将第一个参数设为空对象，第一种会修改 state 的值  </li>
+<li>object.assign() 是 ES6 新特性，存在兼容性问题，要么使用 @babel/polyfill babel 插件，要么使用其他库 _assign()  </li>
+<li>在 default 情况下返回旧的 state。遇到未知的 action 时，一定要返回旧的 state</li>
+</ul>
+<p>reducer 拆分： 可以将数据和单纯 UI 控制相关进行拆分</p>
+<p>通过 combineReducers() 将拆分的 reducers 进行 合并</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; combineReducers &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;redux&#x27;</span><br><br><span class="hljs-keyword">const</span> todoApp = combineReducers(&#123;<br>  visibilityFilter,<br>  todos<br>&#125;)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> todoApp<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">todoApp</span>(<span class="hljs-params">state = &#123;&#125;, action</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">visibilityFilter</span>: visibilityFilter(state.visibilityFilter, action),<br>    <span class="hljs-attr">todos</span>: todos(state.todos, action)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>两种方法等价</p>
+<h2 id="store"><a href="#store" class="headerlink" title="store"></a>store</h2><p>store 是将 action 和 reducer 二者联系起来的对象<br>再次强调一下 Redux 应用只有一个单一的 store。当需要拆分数据处理逻辑时，你应该使用 reducer 组合 而不是创建多个 store</p>
+<p>通过 redux 提供的 createStore() 方法根据已有的 reducer 来创建 store, 可以通过第二个参数提供 initState 初始化应用</p>
+<blockquote>
+<p>const store = createStore(reducers, [initState])</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; createStore &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;redux&#x27;</span><br><span class="hljs-keyword">import</span> todoApp <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./reducers&#x27;</span><br><span class="hljs-keyword">let</span> store = createStore(todoApp)<br></code></pre></td></tr></table></figure>
+<p>store的职责：<br>-维持应用的 state；</p>
+<ul>
+<li>提供 getState() 方法获取 state</li>
+<li>提供 dispatch(action) 方法更新 state</li>
+<li>通过 subscribe(listener) 注册监听器</li>
+<li>通过 subscribe(listener) 返回的函数注销监听器</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123;<br>  addTodo,<br>  toggleTodo,<br>  setVisibilityFilter,<br>  VisibilityFilters<br>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./actions&#x27;</span><br><br><span class="hljs-comment">// 打印初始状态</span><br><span class="hljs-built_in">console</span>.log(store.getState())<br><br><span class="hljs-comment">// 每次 state 更新时，打印日志</span><br><span class="hljs-comment">// 注意 subscribe() 返回一个函数用来注销监听器</span><br><span class="hljs-keyword">const</span> unsubscribe = store.subscribe(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(store.getState()))<br><br><span class="hljs-comment">// 发起一系列 action</span><br>store.dispatch(addTodo(<span class="hljs-string">&#x27;Learn about actions&#x27;</span>))<br>store.dispatch(addTodo(<span class="hljs-string">&#x27;Learn about reducers&#x27;</span>))<br>store.dispatch(addTodo(<span class="hljs-string">&#x27;Learn about store&#x27;</span>))<br>store.dispatch(toggleTodo(<span class="hljs-number">0</span>))<br>store.dispatch(toggleTodo(<span class="hljs-number">1</span>))<br>store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))<br><br><span class="hljs-comment">// 停止监听 state 更新</span><br>unsubscribe()<br></code></pre></td></tr></table></figure>
+
+<h2 id="严格的单向数据流"><a href="#严格的单向数据流" class="headerlink" title="严格的单向数据流"></a>严格的单向数据流</h2>
+            
+        </article>
+    </div>
+    
+</section>
+
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1629897075480"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <!-- baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?1b3ede68905f0bbb58c39b0e279d6246';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+
+</html>
