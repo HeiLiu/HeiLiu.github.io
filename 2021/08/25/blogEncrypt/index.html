@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>git Submodule - HeiLiu</title>
+    <title>hexo 博客文章内容加密 - HeiLiu</title>
     <meta charset="UTF-8">
     <meta name="description" content="一直在路上的程序员">
     <meta name="keywords" content="博客 程序员 分享">
@@ -13,22 +13,22 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="在公司的项目开发过程中，我们在项目开始之前根据设计搞开发了一个单独的UI组件库 Components，在正式的项目里面前中期都是通过将我们的组件库通过npm包管理的方式在项目里面去引用，再import需要的组件；在一次发版后线上出现一个较为严重的问题，在线下复现查找问题 debugger 的时候, 调试到组件库的代码时，由于是经过打包的代码十分难以调试基本上全是 n啊 v啊，一堆看不出语义的变量，">
+    <meta name="description" content="安装对应依赖 $ npm install --save hexo-blog-encrypt 或$ yarn add hexo-blog-encrypt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git Submodule">
-<meta property="og:url" content="https://heiliu.github.io/2019/12/11/gitSubmodule/">
+<meta property="og:title" content="hexo 博客文章内容加密">
+<meta property="og:url" content="https://heiliu.github.io/2021/08/25/blogEncrypt/">
 <meta property="og:site_name" content="HeiLiu">
-<meta property="og:description" content="在公司的项目开发过程中，我们在项目开始之前根据设计搞开发了一个单独的UI组件库 Components，在正式的项目里面前中期都是通过将我们的组件库通过npm包管理的方式在项目里面去引用，再import需要的组件；在一次发版后线上出现一个较为严重的问题，在线下复现查找问题 debugger 的时候, 调试到组件库的代码时，由于是经过打包的代码十分难以调试基本上全是 n啊 v啊，一堆看不出语义的变量，">
+<meta property="og:description" content="安装对应依赖 $ npm install --save hexo-blog-encrypt 或$ yarn add hexo-blog-encrypt">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-11T08:26:20.000Z">
-<meta property="article:modified_time" content="2019-12-13T10:17:54.358Z">
+<meta property="article:published_time" content="2021-08-25T13:15:25.000Z">
+<meta property="article:modified_time" content="2021-08-25T15:51:47.518Z">
 <meta property="article:author" content="小别致真东西">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1629906774262">
+    <link rel="stylesheet" href="/css/style.css?v=1629906774215">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1629906774262">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1629906774215">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -245,24 +245,30 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: 52.77777777777778%;"> 
-              <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="git Submodule" class="lazyload">
-              <h1>git Submodule</h1>
+              <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="hexo 博客文章内容加密" class="lazyload">
+              <h1>hexo 博客文章内容加密</h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月11日</a>
-    <a><i class="nexmoefont icon-areachart"></i>481 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年08月25日</a>
+    <a><i class="nexmoefont icon-areachart"></i>261 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
 </div>
 
       
 
-      <p>在公司的项目开发过程中，我们在项目开始之前根据设计搞开发了一个单独的UI组件库 Components，在正式的项目里面前中期都是通过将我们的组件库通过npm包管理的方式在项目里面去引用，再import需要的组件；在一次发版后线上出现一个较为严重的问题，在线下复现查找问题 debugger 的时候, 调试到组件库的代码时，由于是经过打包的代码十分难以调试基本上全是 n啊 v啊，一堆看不出语义的变量，以至于没有办法快速定位是业务代码还是组件库里的逻辑有问题（尽管后面还是定位到了问题出现在业务代码里面。。）。</p>
-<p>这种情况下，我们决定把组件库的代码引入到项目里面，通过子模块的实现引入进行管理，实际项目也没有通过npm包的形式引用组件库，直接放在了本地通过 Next 提供的 Dynamic 模块来进行组件的懒加载（暂时也没有太多的替代方案）。主要涉及到 git subModule 相关的操作。</p>
-<h2 id="子模块的管理和使用"><a href="#子模块的管理和使用" class="headerlink" title="子模块的管理和使用"></a>子模块的管理和使用</h2><p>实际上就是在一个git仓库下面将另一个 git 项目设置为项目的子模块(submodule)。这个子模块它是一个第三方开发的Git 库或者是你独立开发；既可以达到使用子模块中的代码的目的，两个项目又具有相对独立的提交。</p>
-<p>通过 git submodule 可以查看当前子模块的信息如下：<br><a href="">子模块信息</a><br>包含子模块当前指向的commit_id 名称以及版本等其他信息 </p>
-<p>两个项目各自独立管理、在子模块有修改后更新子模块的指向</p>
+      <ul>
+<li><p>安装对应依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ npm install --save hexo-blog-encrypt <br>或<br>$ yarn add hexo-blog-encrypt <br></code></pre></td></tr></table></figure>
+<span id="more"></span></li>
+<li><p>修改文章开头部分 添加 password 到   <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter"> Front-matter</a> 中</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2013</span><span class="hljs-string">/7/13</span> <span class="hljs-number">20</span><span class="hljs-string">:46:25</span><br><span class="hljs-attr">password:</span> <span class="hljs-number">123</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure></li>
+<li><p>修改博客根目录下 _config.yml 文件</p>
+</li>
+</ul>
+<p>添加如下安全相关配置项：</p>
+<figure class="highlight handlebars"><table><tr><td class="code"><pre><code class="hljs handlebars"><span class="xml"># Security</span><br><span class="xml">encrypt: # hexo-blog-encrypt</span><br><span class="xml">  abstract: 简单描述。</span><br><span class="xml">  message: 加密文章，可能是个人情感宣泄或者生活记录。</span><br><span class="xml">  tags:</span><br><span class="xml">    - &#123; name: tagName, password: 密码A &#125;</span><br><span class="xml">    - &#123; name: tagName, password: 密码B &#125;</span><br><span class="xml">  template:</span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;hexo-blog-encrypt&quot;</span> <span class="hljs-attr">data-wpm</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">hbeWrongPassMessage</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">data-whm</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">hbeWrongHashMessage</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;hbe-input-container&quot;</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;hbePass&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">hbeMessage</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> /&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">hbeMessage</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bottom-line&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;hbeData&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hbeData&quot;</span> <span class="hljs-attr">data-hmacdigest</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">hbeHmacDigest</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">hbeEncryptedData</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">  wrong_pass_message: 抱歉，密码不太对，再瞅瞅？</span><br><span class="xml">  wrong_hash_message: 抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。</span><br></code></pre></td></tr></table></figure>
 
   </article>
 
@@ -270,9 +276,9 @@
       
     <div class="nexmoe-post-copyright">
         <strong>本文作者：</strong>小别致真东西<br>
-        <strong>本文链接：</strong><a href="https://heiliu.github.io/2019/12/11/gitSubmodule/" title="https:&#x2F;&#x2F;heiliu.github.io&#x2F;2019&#x2F;12&#x2F;11&#x2F;gitSubmodule&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;heiliu.github.io&#x2F;2019&#x2F;12&#x2F;11&#x2F;gitSubmodule&#x2F;</a><br>
+        <strong>本文链接：</strong><a href="https://heiliu.github.io/2021/08/25/blogEncrypt/" title="https:&#x2F;&#x2F;heiliu.github.io&#x2F;2021&#x2F;08&#x2F;25&#x2F;blogEncrypt&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;heiliu.github.io&#x2F;2021&#x2F;08&#x2F;25&#x2F;blogEncrypt&#x2F;</a><br>
         
-            true
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
         
     </div>
 
@@ -282,7 +288,7 @@
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Git/" rel="tag">Git</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/hexo/" rel="tag">hexo</a>
     
 </div>
 
@@ -321,7 +327,7 @@
 
  
 
-<script async src="/js/app.js?v=1629906774263"></script>
+<script async src="/js/app.js?v=1629906774215"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
