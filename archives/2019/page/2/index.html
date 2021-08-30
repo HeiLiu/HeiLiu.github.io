@@ -24,9 +24,9 @@
 <meta property="article:tag" content="博客 程序员 分享">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1630291643950">
+    <link rel="stylesheet" href="/css/style.css?v=1630292548282">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630291643950">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630292548282">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -50,7 +50,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>74</div>
+        <div><span>文章</span>73</div>
         <div><span>标签</span>23</div>
         <div><span>分类</span>18</div>
     </div>
@@ -216,7 +216,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/笔记/">笔记</a>
-          <span class="category-list-count">1</span>
+          <span class="category-list-count">3</span>
         </li>
 
         
@@ -239,32 +239,6 @@
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
             <section class="nexmoe-posts">
-    
-    <div class="nexmoe-post">
-        <a href="/2019/11/12/homeBrew/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 52.77777777777778%;"> 
-                    <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="Homebrew 的使用" class="lazyload">
-                    <h1>Homebrew 的使用</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月12日</a>
-            <a><i class="nexmoefont icon-areachart"></i>5 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                <p>Homebrew： 家酿</p>
-<!-- TODO -->
-<p><a target="_blank" rel="noopener" href="https://crispgm.com/page/dive-in-homebrew.html">参考</a></p>
-
-            
-        </article>
-    </div>
     
     <div class="nexmoe-post">
         <a href="/2019/11/12/staticFiles/">
@@ -598,6 +572,61 @@
         </article>
     </div>
     
+    <div class="nexmoe-post">
+        <a href="/2019/08/14/E2ETest/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 52.77777777777778%;"> 
+                    <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="E2E 测试" class="lazyload">
+                    <h1>E2E 测试</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月14日</a>
+            <a><i class="nexmoefont icon-areachart"></i>929 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>E2E 测试：</strong> 端到端测试（end to end）属于黑盒测试，是站在用户的角度进行的测试，自动化模拟用户在 UI 界面上的每一个操作（输入、点击、跳转等），确保整个操作流程顺畅且符合预期。</p>
+<p>公司的小程序的 e2e 测试工作也已经完成一段时间了，最近项目新增页面也对应增加里测试代码。手头有时间最重要的是有心情，开始回顾一下整个小程序测试工作流程。 小程序的测试对于我来说还是一个全新的领域，接到要着手对手里的项目补充测试用例的工作安排马上开始着手调研小程序的 e2e 测试方案。  </p>
+<p>首先开始看小程序官方自动化文档，在文档的描述里面明确指出小程序的自动化不提供测试框架（所以还需要选一个相配套的测试框架, 决定选用 jest），只是提供了小程序开发工具的自动化 SDK，也支持通过远程调试控制真机测试（调用后脚本会启动工具真机调试功能，并且在控制台上打印二维码，然后你需要使用真机扫码连接使自动化脚本继续跑下去）。</p>
+<p>官方的 SDK 中的 API 主要包括三大模块：</p>
+<ul>
+<li><code>Automator</code> 开发工具相关，提供连接及启动开发工具的方法</li>
+<li><code>MiniProgram</code> 小程序相关，提供控制小程序的方法（跳转、系统信息等），相当于开发中的 <code>wx</code> 对象</li>
+<li><code>Page</code>  页面相关，获取页面路由、数据、元素及元素属性、节点选择等</li>
+<li><code>Element</code> 页面节点选择、属性、事件等</li>
+</ul>
+<p>从中可以看出该 <code>SDK</code> 提供了小程序测试中的基础: 操作开发工具、页面跳转、选取页面 &amp;&amp; 节点对象、事件操作等<br>但是还缺少一些断言语句及其他更多能力<br>官方脚本示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> automator = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;miniprogram-automator&#x27;</span>)<br><br>describe(<span class="hljs-string">&#x27;index&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">let</span> miniProgram<br>  <span class="hljs-keyword">let</span> page<br><br>  beforeAll(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    miniProgram = <span class="hljs-keyword">await</span> automator.launch(&#123;<br>      <span class="hljs-attr">projectPath</span>: <span class="hljs-string">&#x27;path/to/miniprogram-demo&#x27;</span><br>    &#125;)<br>    page = <span class="hljs-keyword">await</span> miniProgram.reLaunch(<span class="hljs-string">&#x27;/page/component/index&#x27;</span>)<br>    <span class="hljs-keyword">await</span> page.waitFor(<span class="hljs-number">500</span>)<br>  &#125;, <span class="hljs-number">30000</span>)<br><br>  afterAll(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">await</span> miniProgram.close()<br>  &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015724775">参考链接</a>  </p>
+<h2 id="小程序自动化"><a href="#小程序自动化" class="headerlink" title="小程序自动化"></a>小程序自动化</h2><p>小程序自动化SDK为开发者提供了一套通过外部脚本操控小程序的方案，从而实现小程序自动化测试的目的。  </p>
+<p>通过该 SDK，你可以做到以下事情：</p>
+<ul>
+<li>控制小程序跳转到指定页面  </li>
+<li>获取小程序页面数据  </li>
+<li>获取小程序页面元素状态  </li>
+<li>触发小程序元素绑定事件  </li>
+<li>往 AppService 注入代码片段  </li>
+<li>调用 wx 对象上任意接口  </li>
+</ul>
+<p>安装小程序自动化SDK：  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">npm install miniprogram-automator --save-dev<br></code></pre></td></tr></table></figure>
+
+
+<ol>
+<li>新功能不需要急着写AT，应该交给QA人肉测试，待功能上线后再慢慢补齐</li>
+<li>反28原则： 28原则是指最重要的只占其中一小部分，约20%，其余80%尽管是多数却不重要，但是写AT需要反过来，我们优先写那80%不常用到的功能，至于那重要的20%，由于经常被使用，它能不能工作一目了然，其实也是最健壮的，需要写AT来覆盖的优先级就不显得这么高了，反而那不常用的80%功能往往没有经过大量的用户测试，很容易在某次迭代中产生新的bug。</li>
+<li>优先写happy path，优先保证一个功能模块的主线畅通，再写边界值测试。</li>
+</ol>
+
+            
+        </article>
+    </div>
+    
 </section>
 
     <nav class="nexmoe-page-nav">
@@ -622,7 +651,7 @@
 
  
 
-<script async src="/js/app.js?v=1630291643950"></script>
+<script async src="/js/app.js?v=1630292548283"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

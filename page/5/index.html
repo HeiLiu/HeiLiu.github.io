@@ -24,9 +24,9 @@
 <meta property="article:tag" content="博客 程序员 分享">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1630291643932">
+    <link rel="stylesheet" href="/css/style.css?v=1630292548344">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630291643933">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630292548344">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -50,7 +50,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>74</div>
+        <div><span>文章</span>73</div>
         <div><span>标签</span>23</div>
         <div><span>分类</span>18</div>
     </div>
@@ -216,7 +216,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/笔记/">笔记</a>
-          <span class="category-list-count">1</span>
+          <span class="category-list-count">3</span>
         </li>
 
         
@@ -239,29 +239,6 @@
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
             <section class="nexmoe-posts">
-    
-    <div class="nexmoe-post">
-        <a href="/2019/12/10/newBlog/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 52.77777777777778%;"> 
-                    <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="个人博客搭建与学习" class="lazyload">
-                    <h1>个人博客搭建与学习</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月10日</a>
-            <a><i class="nexmoefont icon-areachart"></i>0 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-        </div>
-
-        <article>
-            
-                
-            
-        </article>
-    </div>
     
     <div class="nexmoe-post">
         <a href="/2019/11/18/reactHooks/">
@@ -550,6 +527,52 @@
         </article>
     </div>
     
+    <div class="nexmoe-post">
+        <a href="/2019/10/14/mobx-react/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 52.77777777777778%;"> 
+                    <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="在 React 中使用 mobx 进行状态管理" class="lazyload">
+                    <h1>在 React 中使用 mobx 进行状态管理</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年10月14日</a>
+            <a><i class="nexmoefont icon-areachart"></i>405 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+        </div>
+
+        <article>
+            
+                <p>observable<br>inject<br>computed<br>action </p>
+<p>autorun<br>RunInAction<br>Reaction </p>
+<p>尽量使用箭头函数</p>
+<p>调试</p>
+<p>toJS 需要引入 =&gt; 不如直接 JSON.stringify()方便</p>
+<p>不用使用数组索引或者任何将来可能会改变的值作为 key 。如果需要的话为你的对象生成 ids。</p>
+<p><a target="_blank" rel="noopener" href="https://cn.mobx.js.org/best/react-performance.html">参考技巧</a></p>
+<!-- 中文排序 -->
+
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> array = [&#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;武汉&#x27;</span>&#125;, &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;北京&#x27;</span>&#125;, &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;上海&#x27;</span>&#125;, &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;天津&#x27;</span>&#125;];<br><span class="hljs-keyword">var</span> resultArray = array.sort(<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compareFunction</span>(<span class="hljs-params">param1, param2</span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> param1.name.localeCompare(param2.name,<span class="hljs-string">&quot;zh&quot;</span>);<br>    &#125;<br>);<br><span class="hljs-built_in">console</span>.log(resultArray);<br></code></pre></td></tr></table></figure>
+
+<!-- computed 计算属性 -->
+<p>根据现有的状态或其它计算值衍生出的值，响应式的产生一个可以被其它 observer 使用的值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123;observable, computed&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;mobx&quot;</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderLine</span> </span>&#123;<br>    @observable price = <span class="hljs-number">0</span>;<br>    @observable amount = <span class="hljs-number">1</span>;<br><br>    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">price</span>)</span> &#123;<br>        <span class="hljs-built_in">this</span>.price = price;<br>    &#125;<br>  <span class="hljs-comment">// computed 不支持箭头函数的写法</span><br>    @computed <span class="hljs-keyword">get</span> <span class="hljs-title">total</span>() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.price * <span class="hljs-built_in">this</span>.amount;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<!-- autorun -->
+
+<p>想不产生一个新值，而达到一个效果，请使用 autorun。 举例来说，效果是像打印日志、发起网络请求等这样命令式的副作用。</p>
+<p>autorun 中的值必须要手动清理才行</p>
+<!-- runInAction -->
+
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 请求底部的 table Plan 绑定数据</span><br>@action fetchShopPlanList = (): <span class="hljs-function"><span class="hljs-params">ActionResponse</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> [begin, end] = <span class="hljs-built_in">this</span>.dateRange;<br>    <span class="hljs-keyword">return</span> http<br>        .post(ApiBaseinfo_Admin_Restaurant_restaurantID_menuCalendarByDateRange, &#123;<br>            <span class="hljs-string">&#x27;:restaurantID&#x27;</span>: globalStore.currentShopID,<br>            begin,<br>            end,<br>        &#125;)<br>        .then(<span class="hljs-function">(<span class="hljs-params">&#123; error, data &#125;</span>) =&gt;</span> &#123;<br>            <span class="hljs-keyword">if</span> (error) &#123;<br>                <span class="hljs-keyword">return</span> &#123; error &#125;;<br>            &#125;<br><br>            runInAction(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-keyword">const</span> &#123; menuCalendarList &#125; = data;<br>                <span class="hljs-comment">// 遍历筛选绑定菜单项</span><br>                <span class="hljs-built_in">this</span>.boundObj = menuCalendarList.reduce(<span class="hljs-function">(<span class="hljs-params">preObj, mealPlan</span>) =&gt;</span> &#123;<br>                    <span class="hljs-keyword">const</span> &#123; color, name, date &#125; = mealPlan;<br>                    <span class="hljs-keyword">if</span> (color) &#123;<br>                        preObj[<span class="hljs-string">`<span class="hljs-subst">$&#123;date&#125;</span>_<span class="hljs-subst">$&#123;name&#125;</span>`</span>] = color;<br>                    &#125;<br><br>                    <span class="hljs-keyword">return</span> preObj;<br>                &#125;, &#123;&#125;);<br>                <span class="hljs-comment">// 在一个请求的 action中直接去修改 state,可能会存在mobx 检测不到的情况，需要包裹 runInAction</span><br>                <span class="hljs-built_in">this</span>.shopCalendarList = data.menuCalendarList;<br>            &#125;);<br><br>            <span class="hljs-keyword">return</span> &#123; data &#125;;<br>        &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+            
+        </article>
+    </div>
+    
 </section>
 
     <nav class="nexmoe-page-nav">
@@ -574,7 +597,7 @@
 
  
 
-<script async src="/js/app.js?v=1630291643933"></script>
+<script async src="/js/app.js?v=1630292548344"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
