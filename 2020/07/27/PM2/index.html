@@ -13,22 +13,22 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="pm2 是 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等。 安装yarn global add pm2 默认会在安装用户目录下生成几个log文件&#x2F;Users&#x2F;heiliu&#x2F;.pm2&#x2F;logs&#x2F;index-error.log&#x2F;Users&#x2F;heiliu&#x2F;.pm2&#x2F;logs&#x2F;index-out.log&#x2F;Users&#x2F;heiliu&#x2F;.pm2&#x2F;p">
+    <meta name="description" content="PM2 是线上环境下 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等。 主要特性 进程守护，应用崩溃自动重启  开发中出现问题导致服务挂了，需要解决问题后重新 node index.js 手动重启服务，PM2 遇到错误能够自动重启，保证其他服务能够访问   启动多进程，自动做负载均衡，充分利用 CPU 和 内存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PM2">
 <meta property="og:url" content="https://heiliu.github.io/2020/07/27/PM2/">
 <meta property="og:site_name" content="HeiLiu">
-<meta property="og:description" content="pm2 是 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等。 安装yarn global add pm2 默认会在安装用户目录下生成几个log文件&#x2F;Users&#x2F;heiliu&#x2F;.pm2&#x2F;logs&#x2F;index-error.log&#x2F;Users&#x2F;heiliu&#x2F;.pm2&#x2F;logs&#x2F;index-out.log&#x2F;Users&#x2F;heiliu&#x2F;.pm2&#x2F;p">
+<meta property="og:description" content="PM2 是线上环境下 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等。 主要特性 进程守护，应用崩溃自动重启  开发中出现问题导致服务挂了，需要解决问题后重新 node index.js 手动重启服务，PM2 遇到错误能够自动重启，保证其他服务能够访问   启动多进程，自动做负载均衡，充分利用 CPU 和 内存">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-27T09:51:06.000Z">
-<meta property="article:modified_time" content="2021-08-25T12:24:11.900Z">
+<meta property="article:modified_time" content="2021-08-30T02:47:09.011Z">
 <meta property="article:author" content="小别致真东西">
 <meta property="article:tag" content="博客 程序员 分享">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1629906774228">
+    <link rel="stylesheet" href="/css/style.css?v=1630291643857">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1629906774228">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630291643857">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -52,7 +52,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>75</div>
+        <div><span>文章</span>74</div>
         <div><span>标签</span>23</div>
         <div><span>分类</span>18</div>
     </div>
@@ -244,26 +244,64 @@
 
   <article>
       
-          <div class="nexmoe-post-cover" style="padding-bottom: 52.77777777777778%;"> 
-              <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="PM2" class="lazyload">
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.pixabay.com/photo/2021/02/24/20/53/abstract-6047465__480.jpg" data-sizes="auto" alt="PM2" class="lazyload">
               <h1>PM2</h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年07月27日</a>
-    <a><i class="nexmoefont icon-areachart"></i>802 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.4k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
 </div>
 
       
 
-      <p>pm2 是 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等。</p>
+      <p>PM2 是线上环境下 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等。</p>
+<h2 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h2><ul>
+<li><p>进程守护，应用崩溃自动重启</p>
+<blockquote>
+<p>开发中出现问题导致服务挂了，需要解决问题后重新 node index.js 手动重启服务，PM2 遇到错误能够自动重启，保证其他服务能够访问</p>
+</blockquote>
+</li>
+<li><p>启动多进程，自动做负载均衡，充分利用 CPU 和 内存</p>
+<span id="more"></span>
+<ul>
+<li><p>为何使用多进程</p>
+<p>服务端： CPU 性能、内存、稳定性、安全性</p>
+<p>操作系统会限制一个进程的最大可用内存、单个进程的内存毕竟是受限的。单进程如果出错会导致整个服务崩溃，其他服务也无法正常提供；多进程如果一个进程崩溃了和其他进程没有太大的关系，能够提高服务器的稳定性</p>
+<p>能够充分利用多核 CPU 的优势</p>
+</li>
+<li><p>多进程和 redis</p>
+<p>系统内存里面，多个进程之间资源是无法共享的，如 session，可以多个进程访问一个 redis，轻松实现数据共享</p>
+</li>
+</ul>
+</li>
+<li><p>自带日志功能，记录自定义日志内容</p>
+<blockquote>
+<p>PM2 会自动搜集项目中的 console.log、console.error 的输出日志到文件当中，应用日志会被保存到服务器硬盘目录~/.pm2/logs/。也可以自定义日志的输出路径</p>
+</blockquote>
+</li>
+<li><p>后台运行</p>
+<blockquote>
+<p>不像平时本地开发时，启动本地服务需要占用一个终端窗口，PM2 启动服务后在后台运行</p>
+</blockquote>
+</li>
+</ul>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">yarn global add pm2<br></code></pre></td></tr></table></figure>
-<p>默认会在安装用户目录下生成几个log文件<br>/Users/heiliu/.pm2/logs/index-error.log<br>/Users/heiliu/.pm2/logs/index-out.log<br>/Users/heiliu/.pm2/pids/index-0.pid    </p>
+<p>默认会在安装用户目录下生成几个log文件<br>/Users/heiliu/.pm2/logs/index-error.log<br>/Users/heiliu/.pm2/logs/index-out.log<br>/Users/heiliu/.pm2/pids/index-0.pid </p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>pm2 start <AppName>/<id></li>
+<li>pm2 restart <AppName>/<id></li>
+<li>pm2 stop <AppName>/<id></li>
+<li>pm2 delete <AppName>/<id></li>
+<li>pm2 info <AppName> / <id> // 查看基本信息</li>
+<li>pm2 list</li>
+</ul>
 <h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight sh"><table><tr><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 可以指定文件名 也可以不指定</span><br>$ pm2 start [文件名]<br><br><span class="hljs-comment"># 例如</span><br>$ pm2 start index.js<br></code></pre></td></tr></table></figure>
 
-<p>在业务开发与测试过程中，我们经常会遇到文件更新后需要重启业务的情况。对于本地环境我们可以使用如 Webpack Dev Server 等工具监听文件变化，然后在文件发生改变后重新运行服务器。而PM2同样提供了类似的功能帮助我们实现这一需求：</p>
+<p>在业务开发与测试过程中，我们经常会遇到文件更新后需要重启业务的情况。对于本地环境我们可以使用如 Webpack Dev Server 或 nodemon 等工具监听文件变化，然后在文件发生改变后重新运行服务器。而 PM2 同样提供了类似的功能帮助我们实现这一需求</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><code class="hljs sh">$ pm2 start --watch<br></code></pre></td></tr></table></figure>
 
 <p>这样只要当前目录下有任意文件发生改变，PM2都会尝试重启进程。</p>
@@ -274,6 +312,8 @@
 </ol>
 <h3 id="停止进程"><a href="#停止进程" class="headerlink" title="停止进程"></a>停止进程</h3><figure class="highlight sh"><table><tr><td class="code"><pre><code class="hljs sh">$ pm2 stop [id|name]<br><br>$ pm2 stop all<br></code></pre></td></tr></table></figure>
 <p>也可以通过 namespace 关键字一次性停止该命名空间下的所有的进程</p>
+<h3 id="进程列表"><a href="#进程列表" class="headerlink" title="进程列表"></a>进程列表</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ pm2 list<br></code></pre></td></tr></table></figure>
+
 <h3 id="某个进程信息"><a href="#某个进程信息" class="headerlink" title="某个进程信息"></a>某个进程信息</h3><figure class="highlight sh"><table><tr><td class="code"><pre><code class="hljs sh">$ pm2 show [id]<br></code></pre></td></tr></table></figure>
 
 <h3 id="日志查看"><a href="#日志查看" class="headerlink" title="日志查看"></a>日志查看</h3><p>我们可以通过打开日志文件查看日志外，还可以通过 pm2 logs 来查看实时日志，这点有对于线上问题排查；日志查看命令如下：</p>
@@ -284,10 +324,16 @@
 
 <h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><p>自动给你做负载均衡  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">pm2 start server.js -i (number|max)<br><br><span class="hljs-comment"># 开启三个进程运行项目</span><br>pm2 start app.js -i 3<br><span class="hljs-comment"># 根据机器CPU核数，开启对应数目的进程运行项目</span><br>pm2 start app.js -i max<br></code></pre></td></tr></table></figure>
-<h3 id="PM2的内置HTTP服务器"><a href="#PM2的内置HTTP服务器" class="headerlink" title="PM2的内置HTTP服务器"></a>PM2的内置HTTP服务器</h3><p>最后笔者想介绍一个极为实用但极少有人提及的功能：<br>HTTP 服务器、之前和很多同学探讨大前端项目前后端分离的时候，发现他们大多都使用 Nginx、Apache 甚至 Tomcat 来托管前端的静态页面，然后使用 PM2 来托管后端 API。但为了一个简单的前端页面专门撰写一堆配置文件，实在是太浪费时间了，PM2 可能也发现了这一点，于是贴心的内置了 HTTP 服务器：</p>
+<h3 id="PM2的内置HTTP服务器"><a href="#PM2的内置HTTP服务器" class="headerlink" title="PM2的内置HTTP服务器"></a>PM2的内置HTTP服务器</h3><p>最后想介绍一个极为实用但极少有人提及的功能：<br>HTTP 服务器、之前和很多同学探讨大前端项目前后端分离的时候，发现他们大多都使用 Nginx、Apache 甚至 Tomcat 来托管前端的静态页面，然后使用 PM2 来托管后端 API。但为了一个简单的前端页面专门撰写一堆配置文件，实在是太浪费时间了，PM2 可能也发现了这一点，于是贴心的内置了 HTTP 服务器：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><code class="hljs sh">$ pm2 serve [path] [port]<br></code></pre></td></tr></table></figure>
 
 <p>是的，就这么简单，一条命令就能启动一个 HTTP 服务器。由于这个 HTTP 服务器使用的是 NodeJS 实现，因此性能同样非常优异，在大部分情况下足够使用。如果是负载非常大的业务，一般也不会考虑使用 PM2，而会使用更具扩展性的Kubernetes。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>可以通过配置文件对 PM2（包括进程数量、日志文件目录等）进行配置</p>
+<p>新建 pm2 的配置文件 pm2.config.json<br>修改 PM2 启动命令，使用配置文件重启<br>检查相应配置是否生效</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;apps&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;pm2-test&quot;</span>,<br>    <span class="hljs-attr">&quot;script&quot;</span>: <span class="hljs-string">&quot;app.js&quot;</span>,<br>    <span class="hljs-attr">&quot;watch&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 监听文件修改、自动重启进程</span><br>    <span class="hljs-attr">&quot;ignore_watch&quot;</span>: [<span class="hljs-string">&quot;node_modules&quot;</span>, <span class="hljs-string">&quot;logs&quot;</span>], <span class="hljs-comment">// 忽略指定文件的修改 配合 watch</span><br>    <span class="hljs-attr">&quot;instances&quot;</span>: <span class="hljs-number">4</span>, <span class="hljs-comment">// 多进程、开启多进程日志文件也会存放在不同的文件中</span><br>    <span class="hljs-attr">&quot;error_file&quot;</span>: <span class="hljs-string">&quot;logs/error.log&quot;</span>, <span class="hljs-comment">// 自定义错误日志文件目录</span><br>    <span class="hljs-attr">&quot;out_file&quot;</span>: <span class="hljs-string">&quot;logs/out.log&quot;</span>,<br>    <span class="hljs-attr">&quot;log_date_format&quot;</span>: <span class="hljs-string">&quot;YYYY_MM_DD HH:mm:ss&quot;</span> <span class="hljs-comment">// 每条日志的日期输出格式</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>修改启动命令</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><code class="hljs json">$ pm2 start pm2.config.json<br></code></pre></td></tr></table></figure>
+
 <p><a target="_blank" rel="noopener" href="https://pm2.keymetrics.io/docs/usage/quick-start/">Process Manager 2</a></p>
 
   </article>
@@ -345,7 +391,7 @@
 
  
 
-<script async src="/js/app.js?v=1629906774229"></script>
+<script async src="/js/app.js?v=1630291643858"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
