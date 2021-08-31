@@ -1,7 +1,7 @@
 ---
 title: Git 笔记  
 date: 2019-07-28  
-tags: 'Git'  
+tags: Git  
 categories: 
   - Skill
   - Note
@@ -16,7 +16,7 @@ Commitizen是一个撰写合格 Commit message 的工具。
 ### 本地分支重命名
 
 git branch -m old new
-
+<!-- more -->
 ### 链接远程仓库 
 ```
   git remote add origin 仓库地址
@@ -116,5 +116,7 @@ git pull origin [分支名]
 
 ### git reflog  
  可以显示已删除的操作
+
+### git rebase
 
 

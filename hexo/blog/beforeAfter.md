@@ -1,7 +1,7 @@
 ---
 title: 记一个伪元素的骚操作
 date: 2019-10-25
-tag: Skill
+tags: Skill
 ---
 
 # 用伪元素实现气泡框
@@ -11,13 +11,13 @@ tag: Skill
   &nbsp;&nbsp;&nbsp;&nbsp;后来想到其实可以用伪元素实现一个类似的气泡弹窗，但是又想到一个问题：我每个元素的气泡内容不一样这尼玛怎么填进去呢？  
   &nbsp;&nbsp;&nbsp;&nbsp;于是乎，查文档、还真在文档里让我发现了一点有用的东西，通过 `attr()` CSS表达式和一个`自定义数据属性` data-descr 创建一个纯CSS, 内容提示气泡如下：  
 
-  <iframe
-     src="https://codesandbox.io/embed/crazy-chatterjee-9h066?fontsize=14"
+<iframe
+     src="https://codesandbox.io/embed/tooltip-tr1eg?fontsize=14&hidenavigation=1&theme=dark"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="crazy-chatterjee-9h066"
-     allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-     sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-   >https://codesandbox.io/s/crazy-chatterjee-9h066?fontsize=14</iframe>
+     title="tooltip"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 
 相关属性： 自定义属性 data-desrc 表达式 attr()  
 

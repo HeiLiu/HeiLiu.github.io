@@ -1,15 +1,14 @@
 ﻿---
 title: Css3属性 
 date: 2018-05-04
-tags: 'Css3'
+tags: Css3
 categories: 前端
 ---
-
 
 ## text-shadow属性  
 **介绍:**
 
-`text-shadow`属性可以给页面上的文字增添阴影效果，`text-shadow`在Css2.1的时候是    被删除了的一个属性，但是呢在3.0的Css中又恢复了使用 
+`text-shadow`属性可以给页面上的文字增添阴影效果，`text-shadow`在Css2.1的时候是被删除了的一个属性，但是呢在 3.0 的Css中又恢复了使用 
     
 ### 使用方法   
  

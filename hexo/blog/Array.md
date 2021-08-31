@@ -1,7 +1,7 @@
 ---
 title: 数组
 date: 2019-08-5 07:42
-tag:
+tags:
   - Note
   - JavaScript
 categories: 前端
@@ -52,6 +52,8 @@ categories: 前端
 
 ### 数组方法  
 
+.push() .pop() .shift() .unshift() .indexOf() .find() .findIndex()  .sort() .reverse() .reduce() .fill() .filter() .map() .flat() .splice() .slice() .from() .isArray() .join() .toString() .valueOf()
+
 isArray 
 
 存取函数  
@@ -76,9 +78,9 @@ print(namestr); // David,Cynthia,Raymond,Clayton,Mike,Jennifer
 ```
 由已有数组创建新的数组  
 
-concat()  合并多个数组创建一个新数组  
-splice()  截取一个数组的子集创建一个新数组
-slice() 
+- concat()  合并多个数组创建一个新数组  
+- splice()  方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组  
+- slice()   方法返回一个新的数组对象，这一对象是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括end）[begin, end)。原始数组不会被改变
 
 使用 splice() 方法为数组添加元素，需提供如下参数：  
 • 起始索引（也就是你希望开始添加元素的地方）；  
@@ -101,7 +103,7 @@ shift()
 unshift() 添加元素到数组的开头
 
 reverse() 翻转数组
-sort()  
+sort()  数组排序
 对数组进行排序是经常会遇到的需求，如果元素是字符串类型，那么sort() 就非常好使：  
 ```js
 var names = ["David","Mike","Cynthia","Clayton","Bryan","Raymond"];

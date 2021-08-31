@@ -1,11 +1,47 @@
 ---
 title: E2E 测试
 date: 2019-08-14
-tag: Test
+tags: Test
 categories:
-  - test
+  - Test
 ---
 
+## 概念
+**E2E 测试：** 端到端测试（end to end）属于黑盒测试，是站在用户的角度进行的测试，自动化模拟用户在 UI 界面上的每一个操作（输入、点击、跳转等），确保整个操作流程顺畅且符合预期。
+
+公司的小程序的 e2e 测试工作也已经完成一段时间了，最近项目新增页面也对应增加里测试代码。手头有时间最重要的是有心情，开始回顾一下整个小程序测试工作流程。 小程序的测试对于我来说还是一个全新的领域，接到要着手对手里的项目补充测试用例的工作安排马上开始着手调研小程序的 e2e 测试方案。  
+
+首先开始看小程序官方自动化文档，在文档的描述里面明确指出小程序的自动化不提供测试框架（所以还需要选一个相配套的测试框架, 决定选用 jest），只是提供了小程序开发工具的自动化 SDK，也支持通过远程调试控制真机测试（调用后脚本会启动工具真机调试功能，并且在控制台上打印二维码，然后你需要使用真机扫码连接使自动化脚本继续跑下去）。
+
+官方的 SDK 中的 API 主要包括三大模块：
+- `Automator` 开发工具相关，提供连接及启动开发工具的方法
+- `MiniProgram` 小程序相关，提供控制小程序的方法（跳转、系统信息等），相当于开发中的 `wx` 对象
+- `Page`  页面相关，获取页面路由、数据、元素及元素属性、节点选择等
+- `Element` 页面节点选择、属性、事件等
+
+从中可以看出该 `SDK` 提供了小程序测试中的基础: 操作开发工具、页面跳转、选取页面 && 节点对象、事件操作等  
+但是还缺少一些断言语句及其他更多能力
+官方脚本示例：
+```js
+const automator = require('miniprogram-automator')
+
+describe('index', () => {
+  let miniProgram
+  let page
+
+  beforeAll(async () => {
+    miniProgram = await automator.launch({
+      projectPath: 'path/to/miniprogram-demo'
+    })
+    page = await miniProgram.reLaunch('/page/component/index')
+    await page.waitFor(500)
+  }, 30000)
+
+  afterAll(async () => {
+    await miniProgram.close()
+  })
+})
+```
 # 测试
 
 [参考链接](https://segmentfault.com/a/1190000015724775)  
@@ -26,3 +62,10 @@ categories:
 ```js
 npm install miniprogram-automator --save-dev
 ```
+
+
+1. 新功能不需要急着写AT，应该交给QA人肉测试，待功能上线后再慢慢补齐
+2. 反28原则： 28原则是指最重要的只占其中一小部分，约20%，其余80%尽管是多数却不重要，但是写AT需要反过来，我们优先写那80%不常用到的功能，至于那重要的20%，由于经常被使用，它能不能工作一目了然，其实也是最健壮的，需要写AT来覆盖的优先级就不显得这么高了，反而那不常用的80%功能往往没有经过大量的用户测试，很容易在某次迭代中产生新的bug。
+3. 优先写happy path，优先保证一个功能模块的主线畅通，再写边界值测试。
+
+

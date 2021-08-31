@@ -1,16 +1,18 @@
 ---
 title: 同一台电脑配置多个SSH
 date: 2019-07-31
+cover: https://cdn.pixabay.com/photo/2020/12/27/12/07/sunrise-5863751__480.png
 tags: Git
 categories:
-  - '倒腾'
+  - 倒腾
   - Note
+  - Git
 ---
 
 
 ## 配置多个SSH
 
-在工作中多访问公司的gitlab仓库，而在生活中又有自己的gayhub仓库  
+在工作中多访问公司的gitlab仓库，而在生活中又有自己的github仓库  
 记录一下方便日后查找
 
 ---  
@@ -56,4 +58,8 @@ categories:
   # IdentityFile : 指明上面User对应的identityFile路径
 ```
 
-- 4、分别往gitlab和github上添加生成的公钥
+- 4、分别往gitlab和github上添加生成的公钥 
+
+## ssh-agent 与 SSH的区别
+
+[参考链接](http://yijiebuyi.com/blog/4b5c272e7058cb331098250c8e98eb3e.html)
