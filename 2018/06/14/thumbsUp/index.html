@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>【轻松集赞】写了个涉嫌混淆微信官方服务的小程序 - HeiLiu</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="一直在路上的程序员">
+    <meta name="keywords" content="博客 程序员 分享">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="发生背景：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;随着现在国内的社交软件用户群体的不断扩大，商家打广告的方式（套路）也越来越多了，每次走在大街上都可以看到商家打出来广告牌，”朋友圈点赞超过30享受六折优惠”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【轻松集赞】写了个涉嫌混淆微信官方服务的小程序">
+<meta property="og:url" content="https://heiliu.github.io/2018/06/14/thumbsUp/">
+<meta property="og:site_name" content="HeiLiu">
+<meta property="og:description" content="发生背景：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;随着现在国内的社交软件用户群体的不断扩大，商家打广告的方式（套路）也越来越多了，每次走在大街上都可以看到商家打出来广告牌，”朋友圈点赞超过30享受六折优惠”。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015245489?w=530&h=153">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015245490?w=560&h=314">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015245492?w=720&h=1280">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015245493?w=720&h=1280">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015245494?w=374&h=586">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015245495?w=50&h=50">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015245496?w=48&h=48">
+<meta property="article:published_time" content="2018-06-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-31T14:21:38.089Z">
+<meta property="article:author" content="小别致真东西">
+<meta property="article:tag" content="小程序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://segmentfault.com/img/remote/1460000015245489?w=530&h=153">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1630501193007">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630501193007">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="小别致真东西" class="mdui-btn mdui-btn-icon"><img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="小别致真东西">
+            <img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西" alt="小别致真东西">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>77</div>
+        <div><span>标签</span>31</div>
+        <div><span>分类</span>26</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://github.com/heiliu/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=969403750&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Css/" style="font-size: 12.5px;">Css</a> <a href="/tags/Css3/" style="font-size: 10px;">Css3</a> <a href="/tags/E2E%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">E2E测试</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Foo/" style="font-size: 10px;">Foo</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/Note/" style="font-size: 15px;">Note</a> <a href="/tags/Quote/" style="font-size: 10px;">Quote</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/Skill/" style="font-size: 10px;">Skill</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/WebPack/" style="font-size: 10px;">WebPack</a> <a href="/tags/Yarn/" style="font-size: 10px;">Yarn</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/%E5%80%92%E8%85%BE/" style="font-size: 12.5px;">倒腾</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 12.5px;">小程序</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 12.5px;">面试</a> <a href="/tags/%F0%9F%8C%9D/" style="font-size: 12.5px;">🌝</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Git/">Git</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS语言精粹/">JS语言精粹</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/JavaScript/">JavaScript</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Node最佳实践/">Node最佳实践</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/">Note</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/">Skill</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Test/">Test</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/Vue/">Vue</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/hexo/">hexo</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/webPack/">webPack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/倒腾/">倒腾</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">16</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小程序/">小程序</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/有感/">有感</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活/">生活</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/面试/">面试</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 小别致真东西
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 52.77777777777778%;"> 
+              <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="【轻松集赞】写了个涉嫌混淆微信官方服务的小程序" class="lazyload">
+              <h1>【轻松集赞】写了个涉嫌混淆微信官方服务的小程序</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2018年06月14日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.4k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 10 分钟</a>
+</div>
+
+      
+
+      <hr>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img data-fancybox="gallery" data-sizes="auto" data-src="https://segmentfault.com/img/remote/1460000015245489?w=530&h=153" alt="此处输入图片的描述" class="lazyload"></h2><h3 id="发生背景："><a href="#发生背景：" class="headerlink" title="发生背景："></a>发生背景：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;随着现在国内的社交软件用户群体的不断扩大，商家打广告的方式（套路）也越来越多了，每次走在大街上都可以看到商家打出来广告牌，”朋友圈点赞超过30享受六折优惠”。</p>
+<span id="more"></span>
+<p>在上一次和女盆友出去万达吃个晚饭，终于我们也被这个活动诱惑了一下下，作为口袋钱不多又想好好吃一顿的大三狗，看看望着桌子上一大盆烤鱼，还在犹豫要不要点一份小龙虾的女朋友，还是选择了拍照发朋友圈然后挨个去群里叫亲朋好友点赞，麻烦了一堆好友，真是不好意思。<br>&nbsp;&nbsp;&nbsp;&nbsp;吃饱喝足，两个人扶着腰走在路上炫’腹’、还是女盆友的提醒说，你不是会小程序吗，能不能写一个点赞的小程序来用。哎、还真是，我自己撸一个也是阔以的，说不定还能给其他人用。  </p>
+<h3 id="程序分解"><a href="#程序分解" class="headerlink" title="程序分解"></a>程序分解</h3><h4 id="分析了一下小程序要的功能："><a href="#分析了一下小程序要的功能：" class="headerlink" title="分析了一下小程序要的功能："></a>分析了一下小程序要的功能：</h4><pre><code> 1. 主要功能：点赞（想要多少赞就要多少赞）  
+ 2. 微信朋友圈部分功能    
+</code></pre>
+<h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><p>感觉这个小程序比较适合想要练手小程序和WeUI的盆友，所以细讲一点</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c">├── assets 小程序所需的images icon                 <br>├── pages   页面目录          <br><span class="hljs-string">|   ├── welcome 欢迎页面      </span><br><span class="hljs-string">|   ├── index   内容发布操作页面</span><br><span class="hljs-string">|   ├── mian   &#x27;朋友圈&#x27; </span><br>├── style   页面的样式 及weui<br>└── app.js  小程序逻辑 全局参数<br>└── app.wxss 小程序公共样式<br>└── app.json   项目的配置<br></code></pre></td></tr></table></figure>
+<p>需要注意的地方：微信朋友圈发布一张图片和多张图片图片宽高比例不一样  </p>
+<h4 id="欢迎页面Welcome"><a href="#欢迎页面Welcome" class="headerlink" title="欢迎页面Welcome"></a>欢迎页面Welcome</h4><ul>
+<li>欢迎页的动画我很喜欢，在设计的时候也想了试了比较久，也许是这一个小程序的最养眼的地方<br> <img data-fancybox="gallery" data-sizes="auto" data-src="https://segmentfault.com/img/remote/1460000015245490?w=560&h=314" alt="此处输入图片的描述" class="lazyload"><br> 不好意思啦，就这张GIF显示的效果比较让人满意，得麻烦您想象一下竖屏的画面啦 </li>
+<li>这个气泡动画都是由代码 + <code>svg</code>图生成  其实只要你想到就非常简单  </li>
+</ul>
+<p><strong>结构部分：</strong>  </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">// 我页面上设置了10气泡<br><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;zan animation &#123;&#123;rotate?&#x27;biubiu&#x27;:&#x27;&#x27;&#125;&#125;&quot;</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">&quot;onTap&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bg-bubbles &#123;&#123;rotate?&#x27;biubiu&#x27;:&#x27;&#x27;&#125;&#125;&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>```  <br>**部分样式：**<br>```css<br>.animation&#123;<br>  -webkit-animation: rotate 2s linear;<br>  animation: rotate 2s linear;<br>&#125;<br>.biubiu&#123;<br>  -webkit-transform:rotate(720deg) scale(2,2);<br>  transform:rotate(720deg) scale(0,0); <br>  -webkit-transition:all 2s ease-in-out;<br>  transition:all 2s ease-in-out;<br>&#125;<br><br>.bg-bubbles &#123;<br>//整个背景占满全屏<br>  position: absolute;<br>  top: 0;<br>  left: 0;<br>  width: 100%;<br>  height: 100%;<br>  overflow: hidden;<br>&#125;<br>.bg-bubbles li &#123;<br>  position: absolute;<br>  bottom: -160rpx; // 让气泡从页面底部冒出的效果<br>  width: 40rpx;<br>  height: 40rpx;<br>  /* background-color: rgba(255,255,255,0.15); */<br>  list-style: none;<br>  // 使用自定义动画使气泡渐现、上升和翻滚<br>  animation: square 15s infinite;<br>  transition-timing-function: linear;<br>  overflow: hidden;<br>&#125;<br>li image&#123;<br>  width: 100%;<br>  height: 100%;<br>&#125;<br>//给每个气泡通过left 设置在不同的点 这里只展示一个节点操作<br>.bg-bubbles li:nth-child(2) &#123;<br>  left: 20%;<br>  width: 90rpx;<br>  height: 90rpx;<br>//设置不同气泡的动画执行时间 和出现时间<br>  animation-delay: 2s;<br>  animation-duration: 7s;<br>  background-image: url(&#x27;svgPath&#x27;); //保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域<br>  // 让每一个气泡图片完整展示<br>  background-size: cover;<br>&#125;<br><br>// 两个自定义动画实现页面显示动画效果<br>@keyframes square &#123;<br>  0% &#123;<br>    opacity: 0.5;<br>    transform: translateY(0rpx) rotate(45deg);<br>  &#125;<br>  25% &#123;<br>    opacity: 0.75;<br>    transform: translateY(-800rpx) rotate(90deg);<br>  &#125;<br>  50% &#123;<br>    opacity: 1;<br>    transform: translateY(-1200rpx) rotate(135deg);<br>  &#125;<br>  100% &#123;<br>    opacity: 0;<br>    transform: translateY(-1000rpx) rotate(180deg);<br>  &#125;<br>&#125;<br><br>@keyframes rotate&#123;<br>    //就不贴那么多 占位置<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>再回过头去看看，只要想清楚了实现起来并没有那么复杂</p>
+<blockquote>
+<p>在<code>welcome</code>页面的js文件中 页面跳转可以由点击和自动跳转，因为自动跳转设置在页面<code>onLoad</code>事件的定时器中，所以在点击跳转之后，应该将<code>onLoad</code>中的定时器进行清除操作  </p>
+</blockquote>
+<h3 id="内容发布页Index"><a href="#内容发布页Index" class="headerlink" title="内容发布页Index"></a>内容发布页Index</h3><blockquote>
+<p>发布页就像正常发布朋友圈一样，说说内容、图片、位置基本内容不能少<br>因为我们是点赞小程序，所以可以将点赞和评论操作放在本页，当然在朋友圈页面也有提供点赞的按钮    </p>
+</blockquote>
+<p><strong>页面布局效果和操作：</strong><br>![发布页面][3]<br>这个页面大部分使用了WeUI的组件编写主要用到的组件有：</p>
+<blockquote>
+<p>主要是表单组件，实际上我们这个页面大部分在做表单处理：<br>   <code> weui-cells</code> 表单<br>   <code> uploader</code> 图片上传<br>    <code>slider</code> 滑动按钮<br>   <code> picker</code> 从底部弹起的滚动选择器 支持多种选择器，通过<code>mode</code>分别<br>   <code>button</code> 按钮  </p>
+</blockquote>
+<p>整个页面可以理解为：将一切你想要在’朋友圈’展示的内容设置好 -&gt;通过 wx.setStorageSync()写入缓存里进行数据传递到即将展示的内容页面<br><strong>值得一说：</strong><br>长按图片删除  </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-title">deleteTap</span>(<span class="hljs-params">e</span>)</span> &#123;<br>  <span class="hljs-keyword">var</span> imgList = <span class="hljs-built_in">this</span>.data.images;<br>  <span class="hljs-keyword">const</span> index = e.currentTarget.dataset.item;<br>  <span class="hljs-comment">// 通过spilce()对数组中的元素删除 通过MVVM模式 再setData 对图片实现长按删除</span><br>  imgList.splice(index, <span class="hljs-number">1</span>); <br>  wx.showModal(&#123;<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;温馨提示&#x27;</span>,<br>    <span class="hljs-attr">content</span>: <span class="hljs-string">&#x27;确定要删除吗&#x27;</span>,<br>    <span class="hljs-attr">showCancel</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">confirmText</span>: <span class="hljs-string">&#x27;确定&#x27;</span>,<br>    <span class="hljs-attr">success</span>:<span class="hljs-function">(<span class="hljs-params">response</span>)=&gt;</span>&#123;<br>      <span class="hljs-built_in">this</span>.setData(&#123;<br>        <span class="hljs-attr">images</span>:imgList<br>      &#125;);<br>    &#125;<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="朋友圈-Main"><a href="#朋友圈-Main" class="headerlink" title="朋友圈 Main"></a>朋友圈 Main</h3><p>使用了一下朋友的手机录了个屏（不小心暴露了老哥的珍藏表情包） 因为他的昵称是透明的，所以在页面上昵称那一块是空缺的<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://segmentfault.com/img/remote/1460000015245492?w=720&h=1280" alt="多张" class="lazyload"><br><img data-fancybox="gallery" data-sizes="auto" data-src="https://segmentfault.com/img/remote/1460000015245493?w=720&h=1280" alt="一张图片时" class="lazyload"><br><img data-fancybox="gallery" data-sizes="auto" data-src="https://segmentfault.com/img/remote/1460000015245494?w=374&h=586" alt="完整页面展示" class="lazyload"><br>在内容页面中，值得注意的就是微信朋友圈的图片的显示，单张图和多张图图片的显示宽高比不一样，从效果图中可以看出，在实际实现中可以通过判断要展示的图片数组的长度进行三元运算判断选择使用哪一种展示样式</p>
+<blockquote>
+<p>content_info.images.length &gt;1?’image_item’:’image_item3_4’</p>
+</blockquote>
+<p><strong>实现：</strong></p>
+<figure class="highlight handlebars"><table><tr><td class="code"><pre><code class="hljs handlebars"><span class="xml">// 使用了九宫格布局</span><br><span class="xml"> <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;weui-grids images_list&quot;</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">block</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">content_info.images</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">index</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;weui-grid </span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">content_info.images.length</span> &gt;<span class="hljs-number">1</span>?<span class="hljs-string">&#x27;image_item&#x27;</span>:<span class="hljs-string">&#x27;image_item3_4&#x27;</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">hover-class</span>=<span class="hljs-string">&quot;weui-grid_active&quot;</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">data-id</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">index</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">&quot;aspectFill&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.path</span>&#125;&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">&quot;preImgTap&quot;</span> /&gt;</span></span><br><span class="xml">       <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="xml">     <span class="hljs-tag">&lt;/<span class="hljs-name">block</span>&gt;</span></span><br><span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p>微信的WeUI框架中包含了常用的九宫格布局 通过weui-grids 类名使用，我也是再自己手写完九宫格的样式以后才无意中在文档里瞥到了，这一瞥差点吐血（又白折腾一阵），还是给大家贴上原来的九宫格布局代码：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.grid</span> &#123;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">40</span>rpx <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">margin-left</span>: auto;<br>    <span class="hljs-attribute">margin-right</span>: auto;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">660</span>rpx;<br>    <span class="hljs-attribute">overflow</span>: hidden;<br>    <span class="hljs-attribute">box-sizing</span>: border-box;<br>&#125;<br><br><span class="hljs-comment">/* 自建九宫格最方便的写法 width: 33.33333%; */</span><br><br><span class="hljs-selector-class">.grid</span> <span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">float</span>: left;<br>    <span class="hljs-attribute">box-sizing</span>: border-box;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">33.33333%</span>;<br>    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">4%</span>;<br>    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">4%</span>;<br>    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">40</span>rpx;<br>    <span class="hljs-attribute">overflow</span>: hidden;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>点赞按钮：</strong></p>
+<p>点赞的人名都是我所能想到的人名以及角色名，可把边上的人都写了一遍</p>
+<blockquote>
+<p>点赞的操作因为程序功能的需要做成了点一下加一个点赞人数<br>因为在onload中已经通过发布页面(index)的slider确定了点赞的人数，</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//点赞按钮点击一下增加一个人即一个昵称</span><br> <span class="hljs-function"><span class="hljs-title">addThumb</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">let</span> thumbs = <span class="hljs-built_in">this</span>.data.content_info.thumbs;<br>    thumbs = thumbs +<span class="hljs-number">1</span>;<br>    <span class="hljs-built_in">this</span>.data.content_info.thumbs = thumbs;<br>    <span class="hljs-keyword">let</span> nickNames = app.globalData.nickNames;<br>    <span class="hljs-keyword">const</span> temp = [];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; thumbs-<span class="hljs-number">1</span>; i++) &#123;<br>      temp.push(nickNames[i]);<br>    &#125;<br>    <span class="hljs-comment">//为了解决昵称最后一个逗号问题，直接粗暴的在最后添加一项</span><br>    temp.push(<span class="hljs-string">&#x27;佚名&#x27;</span>);<br>    <span class="hljs-built_in">this</span>.setData(&#123;<br>      <span class="hljs-attr">nickNames</span>: temp<br>    &#125;)<br>  &#125;<br><span class="hljs-string">``</span><span class="hljs-string">`  </span><br><span class="hljs-string">使用到的API：</span><br></code></pre></td></tr></table></figure>
+<p>//图片预览<br>wx.previewImage({<br>      current: <code>$&#123;path&#125;</code>,//当前显示的图片路径<br>      urls: […urls]//要预览的所有图片<br>    })</p>
+<p>```<br>随手的一个小程序，但是功能还是可以的，符合小程序用完即走的原则，上线是不可能的，界面和功能混淆了微信的官方服务功能<img data-fancybox="gallery" data-sizes="auto" data-src="https://segmentfault.com/img/remote/1460000015245495?w=50&h=50" alt="此处输入图片的描述" class="lazyload">，不过我留了一个体验版在手机里，美滋滋。比较适合想要练手小程序和<code>weui</code>的童鞋<br>全部的代码还请移步<a target="_blank" rel="noopener" href="https://github.com/HeiLiu/thumbsUp">我的github</a>,欢迎<code>star</code>和<code>fork</code>。最后朋友圈页面的评论按钮功能后面会继续实现，想要实现的朋友可以参考我的思路：</p>
+<blockquote>
+<p>页面上设置input onfocus 默认隐藏，自动获取焦点-&gt;点击评论按钮再显示<br>获取iput的value 通过数据绑定的效果 绑定到评论数据中，页面刷新</p>
+</blockquote>
+<h3 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h3><ol>
+<li>在使用你不知道或不熟悉的API或组件之前先看看文档，事半功倍    </li>
+<li>小程序在模拟器上实现一些复杂功能和界面效果时，及时在移动设备上进行效果查看，        避免移动端上达不到预期效果，<code>ios</code>和<code>android</code>有时候在样式的显示上有时也会有不同  </li>
+<li>前端路漫漫，与君共勉之。<img data-fancybox="gallery" data-sizes="auto" data-src="https://segmentfault.com/img/remote/1460000015245496?w=48&h=48" alt="舔屏" class="lazyload"></li>
+</ol>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>小别致真东西<br>
+        <strong>本文链接：</strong><a href="https://heiliu.github.io/2018/06/14/thumbsUp/" title="https:&#x2F;&#x2F;heiliu.github.io&#x2F;2018&#x2F;06&#x2F;14&#x2F;thumbsUp&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;heiliu.github.io&#x2F;2018&#x2F;06&#x2F;14&#x2F;thumbsUp&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'nbKSzf8xLpdp0zGqwRkNJjeE-gzGzoHsz',
+        appKey: '0WopfRxB7P9Q9CPleINLHXt1'
+    })
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1630501193007"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <!-- baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?1b3ede68905f0bbb58c39b0e279d6246';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+
+</html>

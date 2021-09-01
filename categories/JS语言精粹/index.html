@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>分类：JS语言精粹 - HeiLiu</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="一直在路上的程序员">
+    <meta name="keywords" content="博客 程序员 分享">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="一直在路上的程序员">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HeiLiu">
+<meta property="og:url" content="https://heiliu.github.io/categories/JS%E8%AF%AD%E8%A8%80%E7%B2%BE%E7%B2%B9/">
+<meta property="og:site_name" content="HeiLiu">
+<meta property="og:description" content="一直在路上的程序员">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="小别致真东西">
+<meta property="article:tag" content="博客 程序员 分享">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1630501193089">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630501193089">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="小别致真东西" class="mdui-btn mdui-btn-icon"><img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="小别致真东西">
+            <img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西" alt="小别致真东西">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>77</div>
+        <div><span>标签</span>31</div>
+        <div><span>分类</span>26</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://github.com/heiliu/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=969403750&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Css/" style="font-size: 12.5px;">Css</a> <a href="/tags/Css3/" style="font-size: 10px;">Css3</a> <a href="/tags/E2E%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">E2E测试</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Foo/" style="font-size: 10px;">Foo</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/Note/" style="font-size: 15px;">Note</a> <a href="/tags/Quote/" style="font-size: 10px;">Quote</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/Skill/" style="font-size: 10px;">Skill</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/WebPack/" style="font-size: 10px;">WebPack</a> <a href="/tags/Yarn/" style="font-size: 10px;">Yarn</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/%E5%80%92%E8%85%BE/" style="font-size: 12.5px;">倒腾</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 12.5px;">小程序</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 12.5px;">面试</a> <a href="/tags/%F0%9F%8C%9D/" style="font-size: 12.5px;">🌝</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Git/">Git</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS语言精粹/">JS语言精粹</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/JavaScript/">JavaScript</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Node最佳实践/">Node最佳实践</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/">Note</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/">Skill</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Test/">Test</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/Vue/">Vue</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/hexo/">hexo</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/webPack/">webPack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/倒腾/">倒腾</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">16</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小程序/">小程序</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/有感/">有感</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活/">生活</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/面试/">面试</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 小别致真东西
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="/2018/05/01/function_note/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 52.77777777777778%;"> 
+                    <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="Javascript函数" class="lazyload">
+                    <h1>Javascript函数</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2018年05月01日</a>
+            <a><i class="nexmoefont icon-areachart"></i>1.9k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 8 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><hr>
+<p>函数用于指定对象的行为，在其中包含一组语句。用于代码复用、信息隐藏、和组合调用。  </p>
+<h3 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h3><p>JavaScript 中的函数就是对象。函数对象连接到<code>Function.prototype</code>（该原型对象本身连接到<code>Object.prototype</code>）。每个函数对象在创建时会附加两个隐藏属性：<code>函数的上下文</code>和<code>实现函数行为的代码</code>。</p>
+<p>函数对象在创建时也随配有一个<code>prototype</code>属性。它的值是一个拥有constructor属性且值即为该函数对象。  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs JS">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a,b</span>)</span>&#123;<br>        <span class="hljs-keyword">return</span> a+b;<br>    &#125;<br><span class="hljs-string">``</span><span class="hljs-string">`  </span><br><span class="hljs-string">因为函数是对象，所以可以像任何其他的值一样被使用。函数可以保存在变量、对象和数组中。函数可以被当做参数传递给其他函数，函数也可以再返回函数。函数也可以拥有方法。</span><br><span class="hljs-string"></span><br><span class="hljs-string">函数的与众不同之处在于可以被调用。  </span><br><span class="hljs-string">### 函数字面量  </span><br><span class="hljs-string">函数对象通过函数字面量来创建。</span><br><span class="hljs-string">函数字面量包含4部分，分别是：保留字 function、函数名、参数、花括号中的语句。</span><br><span class="hljs-string">`</span><span class="hljs-string">``</span>js<br>    <span class="hljs-keyword">var</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> a + b<br>    &#125;  <br><span class="hljs-string">``</span><span class="hljs-string">`  </span><br><span class="hljs-string">### 调用  </span><br><span class="hljs-string">调用一个函数会暂停当前函数的执行，传递控制权和参数给新函数。除了声明时定义的形式参数，还有两个附加参数：`</span><span class="hljs-built_in">this</span><span class="hljs-string">`和`</span><span class="hljs-built_in">arguments</span><span class="hljs-string">`。参数this在面向对象编程中非常重要，它的值取决于调用的模式。</span><br><span class="hljs-string"></span><br><span class="hljs-string">实参和形参个数不匹配时，不会有运行时错误。实参过多时，超出的实参被忽略。形参过多时，缺失的值被替换为undefined。  </span><br><span class="hljs-string">- 方法调用模式  </span><br><span class="hljs-string">    当一个函数被保存为对象的一个属性时，我们称它为一个方法。当一个方法被调用时，`</span><span class="hljs-built_in">this</span>被绑定到该对象<span class="hljs-string">`,通过this可以对该对象的属性和方法进行调用和操作。  </span><br><span class="hljs-string">    `</span><span class="hljs-string">``</span>js<br>    <span class="hljs-keyword">var</span> myObject = &#123;<br>        <span class="hljs-attr">text</span>: hello,<br>        <span class="hljs-attr">say</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">msg</span>)</span>&#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.text + msg);<br>        &#125;<br>    &#125;<br>    myObject.say(world);<br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>函数调用模式<br>当一个函数并非一个对象的属性时，那么它就是被当做一个函数来调用的。<br>此时this被绑定到全局对象。即时是内部函数也会将this绑定到全局对象。this的指向问题 作用域不一样 this的指向就不一样,可以在函数内创建一个属性并赋值为this来解决这个问题,一般通过<code>var that = this</code>;  <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> a + b<br>&#125;<br><br>myObject.double = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> that = <span class="hljs-built_in">this</span><br>    <span class="hljs-keyword">var</span> helper = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>        that.value = add(that.value, that.value)<br>    &#125;<br>    helper()<br>&#125;<br><br>myObject.double()<br><span class="hljs-built_in">console</span>.log(myObject.value) <span class="hljs-comment">//8</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">    attachEvent: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-comment">// attachEvent函数的作用域</span><br>    <span class="hljs-comment">// js 里面this总会指向什么</span><br>    <span class="hljs-comment">// 对象的方法被执行时 this指向对象</span><br>    <span class="hljs-comment">// console.log(this);</span><br>    <span class="hljs-keyword">var</span> that = <span class="hljs-built_in">this</span>;<br>    <span class="hljs-built_in">this</span>.staticElement.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-comment">// 这个函数被执行时，并不是对象的方法，而是匿名函数，作为事件处理函数来执行，this会指向事件发生元素</span><br>        <span class="hljs-comment">// this的指向跟函数的调用方式有关</span><br>        <span class="hljs-comment">// this的指向问题 作用域不一样 this的指向就不一样</span><br>        <span class="hljs-comment">// 作用域 事件的回调函数</span><br>        <span class="hljs-comment">// console.log(this);</span><br>        <span class="hljs-comment">// alert(that.value);</span><br>        that.convertToEdit();<br>    &#125;, <span class="hljs-literal">false</span>);<br>    <span class="hljs-built_in">this</span>.filedElement.addEventListener(<span class="hljs-string">&#x27;keydown&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>&#123;<br>        <span class="hljs-comment">// 在事件发生的一刹那 会产生一个临时事件对象</span><br>        <span class="hljs-built_in">console</span>.log(evt);<br>        <span class="hljs-keyword">if</span> (evt.keyCode == <span class="hljs-number">13</span>) &#123;<br>            that.staticElement.innerHTML = <span class="hljs-built_in">this</span>.value;<br>            <span class="hljs-built_in">console</span>.log(that.staticElement.innerHTML);<br>            that.convertToText();<br>        &#125;<br>    &#125;, <span class="hljs-literal">false</span>)<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>构造器调用模式<br>JavaScript是一门基于原型继承的语言。对象可以直接从其他对象继承属性。该语言是无类型的。<br>如果在一个函数前面带上new来调用，那么背地里将会创建一个连接到该函数的prototype成员的新对象，同时this会被绑定到那个新对象上。  <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//创建构造器函数</span><br><span class="hljs-keyword">var</span> Quo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">string</span>) </span>&#123;<br>    <span class="hljs-built_in">this</span>.status = string<br>&#125;<br><br><span class="hljs-comment">//给Que的所有实例提供一个公共方法</span><br>Quo.prototype.getStatus = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.status<br>&#125;<br><br><span class="hljs-comment">//实例化</span><br><span class="hljs-keyword">var</span> myQuo = <span class="hljs-keyword">new</span> Quo(<span class="hljs-string">&#x27;confused&#x27;</span>)<br><br><span class="hljs-built_in">console</span>.log(myQuo.getStatus()) <span class="hljs-comment">//confused</span><br></code></pre></td></tr></table></figure></li>
+<li>Apply 调用模式<br><code>apply</code>方法让我们构建一个参数数组传递给调用函数。他也允许我们选择<code>this</code>的值。apply方法接受两个参数，第一个是要绑定给<code>this</code>的值，第二个是参数数组。<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">        <span class="hljs-keyword">var</span> arr = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]<br>        <span class="hljs-keyword">var</span> sum = add.apply(<span class="hljs-literal">null</span>, arr)<br>        <span class="hljs-built_in">console</span>.log(sum) <span class="hljs-comment">//7</span><br><br>        <span class="hljs-keyword">var</span> statusObject = &#123;<br>            <span class="hljs-attr">status</span>: <span class="hljs-string">&#x27;hello&#x27;</span><br>        &#125;<br><br>        <span class="hljs-keyword">var</span> status = Quo.prototype.getStatus.apply(statusObject)<br>        <span class="hljs-built_in">console</span>.log(status) <span class="hljs-comment">//hello</span><br><span class="hljs-string">``</span><span class="hljs-string">`  </span><br><span class="hljs-string"></span><br><span class="hljs-string">### 参数  </span><br><span class="hljs-string"></span><br><span class="hljs-string">当函数被调用时，会得到一个`</span><span class="hljs-built_in">arguments</span><span class="hljs-string">`数组。通过此参数可以访问所有它被调用时传递给它的`</span>参数列表<span class="hljs-string">`，包括那些没有被分配给函数声明时定义的形参的多余参数。这使得编写一个无须指定参数个数的函数成为可能。</span><br><span class="hljs-string">`</span><span class="hljs-string">``</span>js    <br> <span class="hljs-keyword">var</span> sum = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>     <span class="hljs-keyword">var</span> i, sum = <span class="hljs-number">0</span><br>     <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">arguments</span>.length; i++) &#123;<br>         sum += <span class="hljs-built_in">arguments</span>[i]<br>     &#125;<br>     <span class="hljs-keyword">return</span> sum<br> &#125;<br> <span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>)<span class="hljs-comment">//45</span><br></code></pre></td></tr></table></figure>
+因语言的设计错误，<code>arguments</code>并不是一个真正的数组。是一个“类似数组”的对象。有<code>length</code>属性，但没有任何数组的方法。</li>
+</ul>
+<h3 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h3><p>函数执行时遇到关闭函数体的<code>&#125;</code>时结束。然后把控制权交还给调用该函数的程序。</p>
+<p><code>return</code>可以使函数提前返回，当return语句执行时函数立即返回不在执行余下的语句。</p>
+<p>函数总是会返回一个值，若没有指定，则返回<code>undefined</code>。</p>
+<p>若函数调用时在前面加上了<code>new</code>前缀，且返回值不是一个对象的时候，则返回<code>this</code>（该新对象）。  </p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>作用域的好处是内部函数可以访问定义他们的外部函数的参数和变量（除了<code>this</code>和<code>arguments</code>）。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> quo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">status</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-attr">get_status</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>            <span class="hljs-keyword">return</span> status;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">var</span> myQuo = quo(<span class="hljs-string">&#x27;amazed&#x27;</span>)<br><span class="hljs-built_in">console</span>.log(myQuo.get_status()) <span class="hljs-comment">//amazed</span><br></code></pre></td></tr></table></figure>
+<p>狭义的说，返回的那个对象即闭包，它里面的方法可以访问它被创建时所处的上下文环境。<code>status</code>访问的就说<code>对象中的status</code>属性本身,通过闭包可以让一个局部变量驻留在内存中</p>
+<p>避免在循环中创建函数，容易引起混淆。可以现在循环之外创建一个辅助函数，让辅助函数在返回一个绑定了当前i值的函数，这样就不会导致混淆了。  </p>
+<h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><p>将一个函数作为参数，一旦接收到响应，再调用这个函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"> fs.readFile(<span class="hljs-string">&#x27;demo/02.js&#x27;</span>,<span class="hljs-string">&#x27;utf8&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">error,data</span>)=&gt;</span>&#123;<br> <span class="hljs-keyword">if</span>(error) <span class="hljs-keyword">throw</span> error;<br> <span class="hljs-comment">//在异步中的错误不能被捕获 通过throw error进行错误的捕获</span><br> <span class="hljs-built_in">console</span>.log(data) &gt;&gt;a.txt;<br>&#125;);<br></code></pre></td></tr></table></figure>
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>可以用函数和闭包构造模块。模块是一个提供接口却隐藏与实现的函数或者对象</p>
+<p>模块模式的一般形式是：一个定义了私有变量和函数的函数；利用闭包创建可以访问私有变量和函数的特权函数；最后返回这个特权函数，或者把他们保存到一个可访问到的地方。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> numberCal = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> half = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> n / <span class="hljs-number">2</span><br>    &#125;<br>    <span class="hljs-keyword">var</span> double = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> n * <span class="hljs-number">2</span><br>    &#125;<br>    <span class="hljs-keyword">var</span> tribble = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> n * <span class="hljs-number">3</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-attr">half</span>: half,<br>        <span class="hljs-attr">double</span>: double,<br>        <span class="hljs-attr">tribble</span>: tribble<br>    &#125;<br>&#125;())<br><br><span class="hljs-built_in">console</span>.log(numberCal.half(<span class="hljs-number">5</span>)) <span class="hljs-comment">//2.5</span><br><span class="hljs-built_in">console</span>.log(numberCal.half(<span class="hljs-number">6</span>)) <span class="hljs-comment">//3</span><br><span class="hljs-built_in">console</span>.log(numberCal.double(<span class="hljs-number">7</span>)) <span class="hljs-comment">//14</span><br><span class="hljs-built_in">console</span>.log(numberCal.tribble(<span class="hljs-number">7</span>)) <span class="hljs-comment">//21</span><br></code></pre></td></tr></table></figure>
+<h3 id="级联"><a href="#级联" class="headerlink" title="级联"></a>级联</h3><p>如果让方法返回this而不是默认的undefined，就可以启用级联，即连续调用。</p>
+<h3 id="记忆"><a href="#记忆" class="headerlink" title="记忆"></a>记忆</h3><p>函数可以将先前操作的结果记录在某个对象或者数组里，从而避免无谓的重复运算。这种优化被称为记忆（memoization）。</p>
+
+            
+        </article>
+    </div>
+    
+</section>
+
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1630501193090"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <!-- baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?1b3ede68905f0bbb58c39b0e279d6246';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>BFC 浅谈 - HeiLiu</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="一直在路上的程序员">
+    <meta name="keywords" content="博客 程序员 分享">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="写在前面  Block formatting context （块级格式化上下文）    页面文档由块block构成 每个block在页面上占据自己的位置使用新的元素构建BFC overflow：hidden | auto | scroll； 只要不为visible 新的空间告诉浏览器，外面的环境影响不到我了 我重新来进行Block formatting 布局和定位   核心：    新的BFC，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BFC 浅谈">
+<meta property="og:url" content="https://heiliu.github.io/2021/08/31/BFC/">
+<meta property="og:site_name" content="HeiLiu">
+<meta property="og:description" content="写在前面  Block formatting context （块级格式化上下文）    页面文档由块block构成 每个block在页面上占据自己的位置使用新的元素构建BFC overflow：hidden | auto | scroll； 只要不为visible 新的空间告诉浏览器，外面的环境影响不到我了 我重新来进行Block formatting 布局和定位   核心：    新的BFC，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-31T13:20:31.689Z">
+<meta property="article:modified_time" content="2021-08-31T13:20:31.689Z">
+<meta property="article:author" content="小别致真东西">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1630501192918">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630501192918">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="小别致真东西" class="mdui-btn mdui-btn-icon"><img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="小别致真东西">
+            <img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西" alt="小别致真东西">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>77</div>
+        <div><span>标签</span>31</div>
+        <div><span>分类</span>26</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://github.com/heiliu/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=969403750&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Css/" style="font-size: 12.5px;">Css</a> <a href="/tags/Css3/" style="font-size: 10px;">Css3</a> <a href="/tags/E2E%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">E2E测试</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Foo/" style="font-size: 10px;">Foo</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/Note/" style="font-size: 15px;">Note</a> <a href="/tags/Quote/" style="font-size: 10px;">Quote</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/Skill/" style="font-size: 10px;">Skill</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/WebPack/" style="font-size: 10px;">WebPack</a> <a href="/tags/Yarn/" style="font-size: 10px;">Yarn</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/%E5%80%92%E8%85%BE/" style="font-size: 12.5px;">倒腾</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 12.5px;">小程序</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 12.5px;">面试</a> <a href="/tags/%F0%9F%8C%9D/" style="font-size: 12.5px;">🌝</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Git/">Git</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS语言精粹/">JS语言精粹</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/JavaScript/">JavaScript</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Node最佳实践/">Node最佳实践</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/">Note</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/">Skill</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Test/">Test</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/Vue/">Vue</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/hexo/">hexo</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/webPack/">webPack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/倒腾/">倒腾</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">16</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小程序/">小程序</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/有感/">有感</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活/">生活</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/面试/">面试</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 小别致真东西
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 52.77777777777778%;"> 
+              <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="BFC 浅谈" class="lazyload">
+              <h1>BFC 浅谈</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年08月31日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
+</div>
+
+      
+
+      <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><hr>
+<blockquote>
+<p>Block formatting context （块级格式化上下文）  </p>
+</blockquote>
+<p>页面文档由块<code>block</code>构成 每个<code>block</code>在页面上占据自己的位置<br>使用新的元素构建BFC overflow：hidden | auto | scroll； 只要不为<code>visible </code>新的空间<br>告诉浏览器，外面的环境影响不到我了 我重新来进行Block formatting 布局和定位  </p>
+<p><strong>核心：</strong><br>    新的BFC，给出了新的不受外界影响的块级格式化环境<br>    block 块级-&gt; 页面的基础<br>    formatting context 格式化-&gt; 渲染</p>
+<h3 id="浏览器构建文档树的时候-布局和定位元素"><a href="#浏览器构建文档树的时候-布局和定位元素" class="headerlink" title="浏览器构建文档树的时候 布局和定位元素"></a>浏览器构建文档树的时候 布局和定位元素</h3><p>网页的定位（大） 文档流正常，浮动，定位，flex，table<br>广义的定位 块级元素的定位 垂直的定位；行内元素 左右定位 通过内容来确定<br>狭义的定位：<br>float 浮动元素，在一行的开始或者结束<br>flex 弹性布局<br>position</p>
+<p>BFC 在正常的文档流里面重建一个新的上下文环境  </p>
+<h3 id="BFC的约束规则"><a href="#BFC的约束规则" class="headerlink" title="BFC的约束规则"></a>BFC的约束规则</h3><ul>
+<li><p>一、在浏览器进行页面元素布局的时候 同一个BFC的两个相邻的Box的margin 会重叠，与方向无关  </p>
+<blockquote>
+<p>破坏规则 创建新的BFC Context上下文的概念   </p>
+</blockquote>
+<p>  如何创建BFC？=&gt;重新规划一个（独立）渲染区域</p>
+<ul>
+<li>根元素body，天然是一个BFC    </li>
+<li>overflow:hidden;  </li>
+<li>float 不为none  </li>
+<li>display:inline-block | table-cell |table-caption  </li>
+<li>position:absolute | fixed 只要不为static  <blockquote>
+<p>好像只剩块级元素和行内元素不是BFC</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>二、<code>BFC</code>的高度，浮动元素也要参与计算  </p>
+<blockquote>
+<p>在元素<code>float </code>之后脱离了文档流没有办法计算确切高度，这种情况我们称之为高度塌陷。解决高度塌陷的前提就是<code>能识</code>别并<code>包含</code>到浮动元素。<strong>而<code>BFC</code>就有这个特性</strong>，所以BFC也可以计算浮动元素的高度。新建BFC让浮动元素也参与计算 </p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span><br><span class="css">        *&#123;<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;&#125;</span><br><span class="css">        <span class="hljs-selector-class">.par</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">border</span>: <span class="hljs-number">5px</span> solid <span class="hljs-number">#fcc</span>;</span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;</span><br><span class="css">            <span class="hljs-comment">/*这里的overflow并不是为了超出则隐藏，而是为了创建一个BFC*/</span></span><br><span class="css">            <span class="hljs-comment">/* overflow: hidden; */</span></span><br><span class="css">            <span class="hljs-attribute">display</span>: inline-block;</span><br><span class="css">        &#125;</span><br><span class="css">        <span class="hljs-selector-class">.child</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">border</span>: <span class="hljs-number">5px</span> solid <span class="hljs-number">#f66</span>;  </span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">            <span class="hljs-attribute">float</span>: left;</span><br><span class="css">            <span class="hljs-comment">/* clear: both; */</span></span><br><span class="css">        &#125;</span><br><span class="css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 网页的定位（大） 文档流正常，浮动，定位，flex，table --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;par&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;child&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;child&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>```  <br>- 三、每个元素的左边，要与包含盒子的左边相接触<br>- 四、BFC的区域不会与float box重叠  <br>```html<br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span><br><span class="css">        *&#123;<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;&#125;</span><br><span class="css">        <span class="hljs-selector-class">.aside</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">float</span>: left;</span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;</span><br><span class="css">            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ff6666</span>;</span><br><span class="css">        &#125;</span><br><span class="css">        <span class="hljs-selector-class">.main</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span><br><span class="css">            <span class="hljs-attribute">background</span>: <span class="hljs-number">#ffcccc</span>;</span><br><span class="css">            <span class="hljs-comment">/* clear: left; */</span></span><br><span class="css">            <span class="hljs-attribute">overflow</span>: hidden;</span><br><span class="css">        &#125;</span><br><span class="css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 自适应两栏式布局 类似于flex：1；</span><br><span class="hljs-comment">    aside 和 main 处于同一BFC（body）下 </span><br><span class="hljs-comment">    BFC布局规则3 规则4 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;aside&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;main&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>```   <br>```html<br>/*BFC在三栏式布局中的应用*/<br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span><br><span class="css">        *&#123;<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;&#125;</span><br><span class="css">        <span class="hljs-selector-class">.container</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span><br><span class="css">        &#125;</span><br><span class="css">        <span class="hljs-selector-class">.left</span>,<span class="hljs-selector-class">.right</span>,<span class="hljs-selector-class">.center</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span><br><span class="css">        &#125;</span><br><span class="css">        <span class="hljs-selector-class">.left</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">background</span>: pink;</span><br><span class="css">            <span class="hljs-attribute">float</span>: left;</span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">180px</span>;</span><br><span class="css">        &#125;</span><br><span class="css">        <span class="hljs-selector-class">.right</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">background</span>: lightblue;</span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">180px</span>;</span><br><span class="css">            <span class="hljs-attribute">float</span>: right;</span><br><span class="css">        &#125;</span><br><span class="css">        <span class="hljs-selector-class">.center</span>&#123;</span><br><span class="css">            <span class="hljs-attribute">background</span>: yellow;</span><br><span class="css">            <span class="hljs-attribute">overflow</span>: hidden;</span><br><span class="css">        &#125;</span><br><span class="css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 三栏式布局 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 页面的结构与呈现效果不一致？想一下 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>Left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>Right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>Center<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>```  <br><br>**注意：**  <br>&gt; 通过 overflow:hidden将元素转换为BFC，固然可以解决高度塌陷的问题，但是大范围的应用在布局上是肯定是行不通的，毕竟overflow会造成溢出隐藏的问题，特别是与JS交互的效果时。  <br><br>那有没有一个更好的高度检测方法呢？<br>答案是有的，就是我们经常用到的clearfix。  <br>```css<br>.clearfix:after&#123;<br>    content:&#x27;&#x27;;<br>    display:table;<br>    clear:both<br>&#125;<br>.clearfix&#123;<br>    *zoom:1;/* IE6,7不支持BFC，所以需要通过专有的CSS属性，触发hasLayout。*/<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/meierbao/p/6526247.html">关于zoom:1</a></p>
+</li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>小别致真东西<br>
+        <strong>本文链接：</strong><a href="https://heiliu.github.io/2021/08/31/BFC/" title="https:&#x2F;&#x2F;heiliu.github.io&#x2F;2021&#x2F;08&#x2F;31&#x2F;BFC&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;heiliu.github.io&#x2F;2021&#x2F;08&#x2F;31&#x2F;BFC&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/css/" rel="tag">css</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'nbKSzf8xLpdp0zGqwRkNJjeE-gzGzoHsz',
+        appKey: '0WopfRxB7P9Q9CPleINLHXt1'
+    })
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1630501192919"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <!-- baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?1b3ede68905f0bbb58c39b0e279d6246';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+
+</html>

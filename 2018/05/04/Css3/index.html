@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>Css3属性 - HeiLiu</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="一直在路上的程序员">
+    <meta name="keywords" content="博客 程序员 分享">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="text-shadow属性介绍: text-shadow属性可以给页面上的文字增添阴影效果，text-shadow在Css2.1的时候是被删除了的一个属性，但是呢在 3.0 的Css中又恢复了使用  使用方法text-shadow : length length length color    注：前两个参数在使用的时候必须给定  第一个length表示阴影离开文字横方向的距离    第二个len">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Css3属性">
+<meta property="og:url" content="https://heiliu.github.io/2018/05/04/Css3/">
+<meta property="og:site_name" content="HeiLiu">
+<meta property="og:description" content="text-shadow属性介绍: text-shadow属性可以给页面上的文字增添阴影效果，text-shadow在Css2.1的时候是被删除了的一个属性，但是呢在 3.0 的Css中又恢复了使用  使用方法text-shadow : length length length color    注：前两个参数在使用的时候必须给定  第一个length表示阴影离开文字横方向的距离    第二个len">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/HeiLiu/markdown_source/blob/master/images/transform-origin.jpg">
+<meta property="article:published_time" content="2018-05-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-31T13:38:45.025Z">
+<meta property="article:author" content="小别致真东西">
+<meta property="article:tag" content="Css3">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/HeiLiu/markdown_source/blob/master/images/transform-origin.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1630501193010">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630501193010">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="小别致真东西" class="mdui-btn mdui-btn-icon"><img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="小别致真东西">
+            <img src="https://avatars1.githubusercontent.com/u/29034936?s=400&amp;u=568e2bb8e4bb03a573e9138e715699e492fbe399&amp;v=4" alt="小别致真东西" alt="小别致真东西">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>77</div>
+        <div><span>标签</span>31</div>
+        <div><span>分类</span>26</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://github.com/heiliu/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=969403750&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Css/" style="font-size: 12.5px;">Css</a> <a href="/tags/Css3/" style="font-size: 10px;">Css3</a> <a href="/tags/E2E%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">E2E测试</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Foo/" style="font-size: 10px;">Foo</a> <a href="/tags/Git/" style="font-size: 17.5px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/Note/" style="font-size: 15px;">Note</a> <a href="/tags/Quote/" style="font-size: 10px;">Quote</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/Skill/" style="font-size: 10px;">Skill</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/WebPack/" style="font-size: 10px;">WebPack</a> <a href="/tags/Yarn/" style="font-size: 10px;">Yarn</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/%E5%80%92%E8%85%BE/" style="font-size: 12.5px;">倒腾</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 12.5px;">小程序</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 12.5px;">面试</a> <a href="/tags/%F0%9F%8C%9D/" style="font-size: 12.5px;">🌝</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Git/">Git</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JS语言精粹/">JS语言精粹</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/JavaScript/">JavaScript</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Node最佳实践/">Node最佳实践</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/Note/">Note</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Skill/">Skill</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Test/">Test</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/Vue/">Vue</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/hexo/">hexo</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/webPack/">webPack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/倒腾/">倒腾</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">16</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小程序/">小程序</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/有感/">有感</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活/">生活</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/笔记/">笔记</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/面试/">面试</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 小别致真东西
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 52.77777777777778%;"> 
+              <img data-src="https://cdn.pixabay.com/photo/2021/08/20/20/05/mountains-6561191__480.jpg" data-sizes="auto" alt="Css3属性" class="lazyload">
+              <h1>Css3属性</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2018年05月04日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.8k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
+</div>
+
+      
+
+      <h2 id="text-shadow属性"><a href="#text-shadow属性" class="headerlink" title="text-shadow属性"></a>text-shadow属性</h2><p><strong>介绍:</strong></p>
+<p><code>text-shadow</code>属性可以给页面上的文字增添阴影效果，<code>text-shadow</code>在Css2.1的时候是被删除了的一个属性，但是呢在 3.0 的Css中又恢复了使用 </p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">text-shadow</span> : length length length color <br></code></pre></td></tr></table></figure>
+<p>  <br/>注：前两个参数在使用的时候必须给定</p>
+<ul>
+<li><p>第一个<code>length</code>表示阴影离开文字横方向的距离  </p>
+</li>
+<li><p>第二个<code>length</code>表示阴影离开文字纵方向的距离  </p>
+</li>
+<li><p>第二个<code>length</code>表示阴影模糊半径 即模糊范围  </p>
+</li>
+<li><p><code>color</code> 表示阴影颜色 可以放在三个<code>length</code>之前 也可以放在之后 如果不给值 则使用元素默认<code>color</code>   </p>
+<p>$ 指定多个阴影： 每个阴影用逗号隔开 </p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">text-shadow</span> : <span class="hljs-number">15px</span> <span class="hljs-number">15px</span> <span class="hljs-number">5px</span> <span class="hljs-number">#000</span>,<span class="hljs-number">30px</span>,<span class="hljs-number">30px</span>,<span class="hljs-number">5px</span> <span class="hljs-number">#f60</span>; <br></code></pre></td></tr></table></figure>
+<h2 id="background-size属性"><a href="#background-size属性" class="headerlink" title="background-size属性"></a>background-size属性</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍:"></a>介绍:</h3><p>在Css3中可以使用<code>background-size</code>来指定背景图像的尺寸  </p>
+<h3 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background-size</span>: auto || length || percentage || cover || contain<br></code></pre></td></tr></table></figure></li>
+<li><p><code>auto</code>: 默认值 保持背景图片的原始宽高比  </p>
+</li>
+<li><p><code>length</code>: 设置背景图片的宽度和高度，如果只设置一个值，则第二个值会被设置为<code>auto</code> 按宽高比进行放大缩小   </p>
+</li>
+<li><p><code>percentage</code>: 以父元素的百分比来设置宽度和高度，如果只设置一个值 同上  </p>
+</li>
+<li><p><code>cover</code>: 此值是将图片放大，以适合铺满整个容器，这个主要用在当图片小于容器又无法使用background-repeat来实现，就采用<code>cover</code>将背景图片放大到适合容器的大小，但是会使图片失真  </p>
+</li>
+<li><p><code>contain</code>: 与<code>cover</code>相反，将背景图片缩小以适合铺满整个容器，这个主要用在当背景图片大于元素容器时，而又需要将背景全部显示出来，就可以用<code>contain</code>将图片缩小到适合容器的大小，这种方法同样会使图片失真 </p>
+</li>
+</ul>
+<h2 id="在一个元素中显示多个背景图片"><a href="#在一个元素中显示多个背景图片" class="headerlink" title="在一个元素中显示多个背景图片"></a>在一个元素中显示多个背景图片</h2><h4 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍:"></a>介绍:</h4><p>   在Css3一个元素可以显示多个背景图像，还可以将多个背景图像进行重叠显示，这样对背景中所用素材调整变得更加容易。  </p>
+<h4 id="使用方法-2"><a href="#使用方法-2" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background-image</span>:<span class="hljs-built_in">url</span>(<span class="hljs-string">1.png</span>),<span class="hljs-built_in">url</span>(<span class="hljs-string">2,png</span>),<span class="hljs-built_in">url</span>(<span class="hljs-string">3.png</span>);<br></code></pre></td></tr></table></figure>
+<p>图层的排序方法: 浏览器中显示时叠放的顺序是从上往下指定的，第一个图片放在最上面，最后指定的放在下面  </p>
+<h2 id="Css3的变形功能"><a href="#Css3的变形功能" class="headerlink" title="Css3的变形功能"></a>Css3的变形功能</h2><h3 id="transform属性"><a href="#transform属性" class="headerlink" title="transform属性"></a>transform属性</h3><p> <strong>介绍:</strong><br>    在Css3中可以利用<code>transform</code>属性来实现文字或图像的旋转、缩放、倾斜、和移动。但是需要做兼容性处理，如下<br>    <figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">-webkit-<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">60deg</span>);<br>-moz-<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">60deg</span>);<br>-ms-<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">60deg</span>); <span class="hljs-comment">/*IE9*/</span><br>-o-<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">60deg</span>);  <br></code></pre></td></tr></table></figure></p>
+<ul>
+<li>rotate(旋转)：<ul>
+<li><code>rotate(60deg)</code>;顺时针旋转 <code>deg</code>是Css3中的角度单位<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">-webkit-<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">60deg</span>);<br></code></pre></td></tr></table></figure></li>
+<li>rotateX(angle) rotateY(angle) rotateZ(angle)<br>  绕对应的轴进行3D旋转</li>
+<li><code>rotate3D(X,Y,Z,deg)</code>    定义 3D 旋转</li>
+</ul>
+</li>
+<li>scale(缩放)：<br><code>transform:scale(值)</code> 值所指的是缩(小)放(大)倍率 如果值为负数并没有效果 纯属无聊<ul>
+<li><code>scale(x,y)</code> 使元素在x轴 y轴方向同时缩放</li>
+<li><code>scaleX(.5)</code> 你应该懂得</li>
+<li><code>scaleY(.5)</code> 同上</li>
+</ul>
+</li>
+<li>skew(倾斜)<br><code>transform:skew(deg)</code> 倾斜角度<ul>
+<li><code>skew(x,y)</code> 元素在水平和垂直方向上同时倾斜 只有一个参数时，只在水平方向上倾斜  </li>
+<li><code>skewX(x)</code> 元素仅在水平方向倾斜  </li>
+<li><code>skewY(y)</code> 元素在垂直方向倾斜  </li>
+</ul>
+</li>
+<li><code>translate</code>(值) 指定移动的距离  负值即反方向移动<ul>
+<li><code>translate(x,y)</code>;在x轴和y轴同时移动，只有一个参数时，仅在水平方向移动;  </li>
+<li><code>translateX(x)</code>;x轴方向移动  </li>
+<li><code> translateY(y)</code>;y轴方向移动</li>
+</ul>
+</li>
+<li>transform-origin 改变元素基点<br> 属性使用：transform-origin:bottom;<br> 各个基点参考如图：<br> <img data-fancybox="gallery" data-sizes="auto" data-src="https://github.com/HeiLiu/markdown_source/blob/master/images/transform-origin.jpg" alt="transform-origin" class="lazyload"></li>
+<li>对一个元素使用多种变形的方法：<br> transform：方法一，方法二，方法三..; <figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"> <span class="hljs-comment">/*同样也需要做兼容性处理*/</span><br><span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(<span class="hljs-number">50px</span>),<span class="hljs-built_in">rotate</span>(<span class="hljs-number">60deg</span>),<span class="hljs-built_in">scale</span>(<span class="hljs-number">2</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="Css3的动画功能"><a href="#Css3的动画功能" class="headerlink" title="Css3的动画功能"></a>Css3的动画功能</h2><a target="_blank" rel="noopener" href="https://github.com/HeiLiu/markdown_source/blob/master/demo/fzdh.html">demo</a><h3 id="transition-支持从一个属性平滑过渡到另外一个属性"><a href="#transition-支持从一个属性平滑过渡到另外一个属性" class="headerlink" title="transition  支持从一个属性平滑过渡到另外一个属性"></a><code>transition</code>  支持从一个属性平滑过渡到另外一个属性</h3></li>
+<li>语法:<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">transition</span>: property duration timing-function delay;<br></code></pre></td></tr></table></figure></li>
+<li><code>transition</code> 主要包含四个属性值:  </li>
+<li>执行变换的属性: <code>transition-property</code>,属性规定应用过渡效果的CSS属性的名称。(当指定的CSS属性改变时，过渡效果将开始)值有三个类型:</li>
+</ul>
+<p>A、<code>none</code> 没有属性会获得过渡效果。<br>B、<code>all</code>所有属性都将获得过渡效果。<br>C、<code>property</code>定义应用过渡效果的CSS 属性名称列表，列表以逗号分隔。</p>
+<ul>
+<li>变换延续的时间: <code>transition-duration</code>规定完成过渡效果需妻花费的时间(以秒或毫秒计》，默认值0没有效果</li>
+<li>在延续时间段，变换的速率变化transition-timing-function<br>值:  <figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">A</span>. ease:  (逐渐变慢) 默认值，ease函数等同于贝塞尔曲线(<span class="hljs-number">0</span>.<span class="hljs-number">25</span>,<span class="hljs-number">0</span>.<span class="hljs-number">1</span>,<span class="hljs-number">0</span>.<span class="hljs-number">25</span>,<span class="hljs-number">1</span>.<span class="hljs-number">0</span>).  <br><span class="hljs-attribute">B</span>. linear:  (匀速)，linear 函数等同于贝塞尔曲线(<span class="hljs-number">0</span>.<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">0</span>,<span class="hljs-number">1</span>.<span class="hljs-number">0</span>,<span class="hljs-number">1</span>.<span class="hljs-number">0</span>).  <br><span class="hljs-attribute">C</span>. ease-in: (加速)，ease-in 函数等同于贝塞尔曲线(<span class="hljs-number">0</span>.<span class="hljs-number">42</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>.<span class="hljs-number">0</span>,<span class="hljs-number">1</span>.<span class="hljs-number">0</span>).  <br><span class="hljs-attribute">D</span>. ease-out:  (减速)，ease-out 函数等同于贝塞尔曲线(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">58</span>,<span class="hljs-number">1</span>.<span class="hljs-number">0</span>).  <br><span class="hljs-attribute">E</span>. ease-in-out :  (加速然后减速)，ease-in-out 函数等同于贝塞尔曲线(<span class="hljs-number">0</span>.<span class="hljs-number">42</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">58</span>,<span class="hljs-number">1</span>.<span class="hljs-number">0</span>)  <br><span class="hljs-attribute">F</span>. cubic-bezier(n,n,n,n)在cubic-bezier 函数中定义自己的值。可能的值是<span class="hljs-number">0</span> 至<span class="hljs-number">1</span>之间的数值。<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="animation-支持通过关键帧的指定来在页面上产生更复杂的动画效果"><a href="#animation-支持通过关键帧的指定来在页面上产生更复杂的动画效果" class="headerlink" title="animation  支持通过关键帧的指定来在页面上产生更复杂的动画效果"></a>animation  支持通过关键帧的指定来在页面上产生更复杂的动画效果</h3><p> <strong>用 transition和Animations的区别 :</strong></p>
+<p><code>transition</code>和<code>Animations</code>的区别在于，<code>transition</code>只能通过指定属性的开始值与结束值，然后通过两属性值之间进行垂滑过渡的方式来实现动画效果，所以transition不能实现复杂的动画效果，而Animations功能是是通过关键幀以及每个关键帧中的属性值来实现更为复杂的动画效果。  </p>
+<ul>
+<li>Animations的使用方法:<br><a target="_blank" rel="noopener" href="https://github.com/HeiLiu/markdown_source/tree/master/demo/fir.im">参考我的飞机Demo更好哦</a>  <figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@-webkit-keyframes</span> 关键帧合集名称&#123;  <br>    创建关键帧的代码  <br>&#125;  <br><span class="hljs-number">0%</span>~<span class="hljs-number">100%</span>&#123;  <br>    本关键帧中的样式   <br>&#125;   <br>// 关键帧创建好了之后，还要在元素的样式中使用该关键帧。方法如下: <br>元素&#123;<br>  - webkit-animation-name :关键帧合集名称 ;<br>  - webkit-<span class="hljs-attribute">animation-duration</span>:<span class="hljs-number">5s</span> ;<br>  - webkit-<span class="hljs-attribute">animation-timing-function</span> :linear;-webkit-<span class="hljs-attribute">animation-iteration-count</span>:infnite  <br>&#125;<br>```css<br>  -webkit-<span class="hljs-attribute">animation-name</span> 指定合集名称，  <br>  -webkit-<span class="hljs-attribute">animation-duration</span> 整个动画执行完成需要的时间，  <br>  -webkit-<span class="hljs-attribute">animation-timing-function</span> 实现动画的方法<br>  <br>  -webkit-<span class="hljs-attribute">animation-iteration-count</span> 属性的属性值设定为某个整数值，那么这个动画播放的次数就等于这个整数值(infinite是无限循环播放)。<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>实现动画的方式:<br>  A、linear: 匀速进行.<br>  B、ease-in: 开始速度很慢，然后沿曲线进行加快，<br>  C、ease-out: 开始速度很快，然后沿着曲线进行减速.<br>  D、ease: 开始时速度很快，然后沿着曲线进行减速，然后再沿着曲线加速，<br>  E、ease-in-out: 开始时速度很慢，然后沿着曲线进行加速，然后再沿着曲线减速.</p>
+<p>也可以以合集的形式进行样式书写：  </p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">animation</span>: name duration timing-function delay iteration-count direction;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>小别致真东西<br>
+        <strong>本文链接：</strong><a href="https://heiliu.github.io/2018/05/04/Css3/" title="https:&#x2F;&#x2F;heiliu.github.io&#x2F;2018&#x2F;05&#x2F;04&#x2F;Css3&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;heiliu.github.io&#x2F;2018&#x2F;05&#x2F;04&#x2F;Css3&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Css3/" rel="tag">Css3</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'nbKSzf8xLpdp0zGqwRkNJjeE-gzGzoHsz',
+        appKey: '0WopfRxB7P9Q9CPleINLHXt1'
+    })
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1630501193011"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+    <!-- baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?1b3ede68905f0bbb58c39b0e279d6246';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+
+</html>
