@@ -24,9 +24,9 @@
 <meta property="article:tag" content="博客 程序员 分享">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1630502052289">
+    <link rel="stylesheet" href="/css/style.css?v=1630549711381">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630502052289">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630549711381">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -317,14 +317,25 @@
 
         <div class="nexmoe-post-meta nexmoe-rainbow">
             <a><i class="nexmoefont icon-calendar-fill"></i>2020年06月05日</a>
-            <a><i class="nexmoefont icon-areachart"></i>12 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>237 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
         </div>
 
         <article>
             
-                <h2 id="跨域问题处理"><a href="#跨域问题处理" class="headerlink" title="跨域问题处理"></a>跨域问题处理</h2><!-- TODO -->
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">jsonp</span>(<span class="hljs-params">url, callback</span>) </span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+                <p>通过 script 标签实现<br>能够绕过同源限制的标签</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;跨域的CSS地址&quot;</span>/&gt;</span> // 一般使用 CDN 地址<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;跨域的js地址&quot;</span> /&gt;</span><span class="handlebars"><span class="xml"></span></span><br><span class="xml"><span class="handlebars"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;跨域的图片地址&quot;</span> /&gt;</span></span></span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="跨域问题处理"><a href="#跨域问题处理" class="headerlink" title="跨域问题处理"></a>跨域问题处理</h2><p>基于安全的需求要求，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">浏览器同源策略</a>（服务端没有同源策略，一般是做转发）<br>同源:协议，域名，端口，三者必须一致。</p>
+<!-- TODO -->
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//前端页面定义好函数</span><br>&lt;script&gt;<br>  <span class="hljs-built_in">window</span>.callback = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(x);<br>  &#125;<br>  <span class="hljs-keyword">let</span> script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;script&#x27;</span>);<br>  script.src = <span class="hljs-string">&quot;http://localhost/getData.js&quot;</span>;<br>	btn.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>  	<span class="hljs-built_in">document</span>.body.appendChild(script);<br>  &#125;);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p>所有的跨域，都必须经过server端的允许和配合<br>服务端根据 url 设置好返回</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">response.write(<span class="hljs-string">`callback(&#123;name:&quot;Bob&quot;&#125;)`</span>);<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="jsonp-为什么不是真正的-ajax"><a href="#jsonp-为什么不是真正的-ajax" class="headerlink" title="jsonp 为什么不是真正的 ajax"></a>jsonp 为什么不是真正的 ajax</h2><p>并没有用到 XMLHttpRequest, 是一个 JS 加载的变种方案，实现跨域信息交换</p>
 
             
         </article>
@@ -540,7 +551,7 @@
 
  
 
-<script async src="/js/app.js?v=1630502052290"></script>
+<script async src="/js/app.js?v=1630549711382"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>

@@ -24,9 +24,9 @@
 <meta property="article:tag" content="博客 程序员 分享">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1630502052297">
+    <link rel="stylesheet" href="/css/style.css?v=1630549711387">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630502052297">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630549711387">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -297,6 +297,7 @@
 <blockquote>
 <p>Block formatting context （块级格式化上下文）  </p>
 </blockquote>
+<p>一块独立的渲染区域、内部元素的渲染不会影响边界以外的元素</p>
 <p>页面文档由块<code>block</code>构成 每个<code>block</code>在页面上占据自己的位置<br>使用新的元素构建BFC overflow：hidden | auto | scroll； 只要不为<code>visible </code>新的空间<br>告诉浏览器，外面的环境影响不到我了 我重新来进行Block formatting 布局和定位  </p>
 <p><strong>核心：</strong><br>    新的BFC，给出了新的不受外界影响的块级格式化环境<br>    block 块级-&gt; 页面的基础<br>    formatting context 格式化-&gt; 渲染</p>
 <h3 id="浏览器构建文档树的时候-布局和定位元素"><a href="#浏览器构建文档树的时候-布局和定位元素" class="headerlink" title="浏览器构建文档树的时候 布局和定位元素"></a>浏览器构建文档树的时候 布局和定位元素</h3><p>网页的定位（大） 文档流正常，浮动，定位，flex，table<br>广义的定位 块级元素的定位 垂直的定位；行内元素 左右定位 通过内容来确定<br>狭义的定位：<br>float 浮动元素，在一行的开始或者结束<br>flex 弹性布局<br>position</p>
@@ -311,7 +312,7 @@
 <li>根元素body，天然是一个BFC    </li>
 <li>overflow:hidden;  </li>
 <li>float 不为none  </li>
-<li>display:inline-block | table-cell |table-caption  </li>
+<li>display:inline-block | table-cell | table-caption ｜ flex</li>
 <li>position:absolute | fixed 只要不为static  <blockquote>
 <p>好像只剩块级元素和行内元素不是BFC</p>
 </blockquote>
@@ -548,7 +549,7 @@
 
  
 
-<script async src="/js/app.js?v=1630502052298"></script>
+<script async src="/js/app.js?v=1630549711387"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
